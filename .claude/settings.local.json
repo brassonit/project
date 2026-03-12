@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(feature-planner)",
+      "Bash(find:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(PYTHONPATH=. python -m pytest:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run build:*)",
+      "Bash(ruff check:*)",
+      "Bash(black --check:*)",
+      "Bash(black:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

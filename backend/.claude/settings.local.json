@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(ruff check:*)",
+      "Bash(black --check:*)",
+      "Bash(black:*)",
+      "Bash(python3 -m pytest:*)",
+      "Bash(ls:*)",
+      "Bash(.venv/bin/python -m pytest:*)",
+      "Bash(venv/bin/python -m pytest:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vitest run)",
+      "Bash(npx vite build)",
+      "Bash(npx eslint:*)"
+    ]
+  }
+}
