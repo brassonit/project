@@ -44,3 +44,4 @@ jobs:
             cd /opt/brassonit/project
             git pull
             docker compose restart backend
+            docker compose restart frontend
