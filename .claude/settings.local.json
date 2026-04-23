@@ -14,7 +14,10 @@
       "Bash(npm run build:*)",
       "Bash(ruff check:*)",
       "Bash(black --check:*)",
-      "Bash(black:*)"
+      "Bash(black:*)",
+      "Bash(xargs ls:*)",
+      "Bash(find /Users/hkkim/work/brassonit/project/frontend/src -type f \\\\\\(-name *.ts -o -name *.tsx \\\\\\))",
+      "Bash(ls -la /Users/hkkim/work/brassonit/project/frontend/.env*)"
     ],
     "deny": [],
     "ask": []
