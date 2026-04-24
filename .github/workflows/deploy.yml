@@ -43,5 +43,7 @@ jobs:
           script: |
             cd /opt/brassonit/project
             git pull
-            docker compose restart backend
+            docker compose down
+            docker compose up -d --build
+            docker exec project-backend-1 alembic upgrade head
             docker compose restart frontend
