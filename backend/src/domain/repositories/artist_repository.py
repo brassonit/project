@@ -2,10 +2,8 @@
 
 from abc import ABC, abstractmethod
 from typing import Optional
-from uuid import UUID
 
 from src.domain.entities.artist import Artist
-from src.domain.value_objects.artist_category import ArtistCategory
 
 
 class IArtistRepository(ABC):
@@ -13,34 +11,36 @@ class IArtistRepository(ABC):
     async def save(self, artist: Artist) -> Artist: ...
 
     @abstractmethod
-    async def find_by_id(self, artist_id: UUID) -> Optional[Artist]: ...
+    async def find_by_id(self, artist_id: str) -> Optional[Artist]: ...
 
     @abstractmethod
-    async def find_all(self, skip: int = 0, limit: int = 20) -> list[Artist]: ...
-
-    @abstractmethod
-    async def find_by_category(self, category: ArtistCategory, skip: int = 0, limit: int = 20) -> list[Artist]: ...
-
-    @abstractmethod
-    async def search(self, query: str, skip: int = 0, limit: int = 20) -> list[Artist]: ...
+    async def find_all(
+        self,
+        category: Optional[str] = None,  # 카테고리명 (예: 대중가수)
+        genre: Optional[str] = None,  # 장르명 (예: 아이돌)
+        search: Optional[str] = None,
+        skip: int = 0,
+        limit: int = 20,
+    ) -> tuple[list[Artist], int]:
+        """활성 아티스트 목록 + 전체 건수"""
+        ...
 
     @abstractmethod
     async def update(self, artist: Artist) -> Artist: ...
 
     @abstractmethod
-    async def delete(self, artist_id: UUID) -> None: ...
+    async def delete(self, artist_id: str) -> None: ...
+
+    @abstractmethod
+    async def increment_view(self, artist_id: str) -> None: ...
+
+    @abstractmethod
+    async def find_all_admin(self, skip: int = 0, limit: int = 20) -> tuple[list[Artist], int]:
+        """관리자용 (비활성 포함)"""
+        ...
 
     @abstractmethod
     async def count_all(self) -> int: ...
-
-    @abstractmethod
-    async def count_by_category(self, category: ArtistCategory) -> int: ...
-
-    @abstractmethod
-    async def count_search(self, query: str) -> int: ...
-
-    @abstractmethod
-    async def find_all_admin(self, skip: int = 0, limit: int = 20) -> list[Artist]: ...
 
     @abstractmethod
     async def count_all_admin(self) -> int: ...

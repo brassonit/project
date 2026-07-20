@@ -2,7 +2,6 @@
 
 from datetime import datetime, timedelta, timezone
 from typing import Any
-from uuid import UUID
 
 from jose import JWTError, jwt
 
@@ -16,7 +15,7 @@ class JWTHandler:
         self.access_expire_minutes = settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES
         self.refresh_expire_days = settings.JWT_REFRESH_TOKEN_EXPIRE_DAYS
 
-    def create_access_token(self, user_id: UUID, role: str) -> str:
+    def create_access_token(self, user_id: str, role: str) -> str:
         expire = datetime.now(timezone.utc) + timedelta(minutes=self.access_expire_minutes)
         payload = {
             "sub": str(user_id),
@@ -26,7 +25,7 @@ class JWTHandler:
         }
         return jwt.encode(payload, self.secret_key, algorithm=self.algorithm)
 
-    def create_refresh_token(self, user_id: UUID) -> str:
+    def create_refresh_token(self, user_id: str) -> str:
         expire = datetime.now(timezone.utc) + timedelta(days=self.refresh_expire_days)
         payload = {
             "sub": str(user_id),

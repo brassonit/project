@@ -34,6 +34,26 @@ class FileStorage:
 
         return f"/uploads/{filename}"
 
+    async def save_attachment(self, file: UploadFile) -> str:
+        """견적 첨부파일 저장 — 문서/이미지/압축 확장자 허용"""
+        ext = os.path.splitext(file.filename or "")[1].lower()
+        if ext not in settings.ALLOWED_ATTACHMENT_EXTS:
+            allowed = ", ".join(settings.ALLOWED_ATTACHMENT_EXTS)
+            raise ValueError(f"허용되지 않는 파일 형식입니다. 허용: {allowed}")
+
+        contents = await file.read()
+        if len(contents) > self.max_size:
+            max_mb = self.max_size // (1024 * 1024)
+            raise ValueError(f"파일 크기가 {max_mb}MB를 초과합니다.")
+
+        filename = f"{uuid.uuid4()}{ext}"
+        filepath = os.path.join(self.upload_dir, filename)
+
+        with open(filepath, "wb") as f:
+            f.write(contents)
+
+        return f"/uploads/{filename}"
+
     async def delete_image(self, file_url: str) -> None:
         if file_url and file_url.startswith("/uploads/"):
             filename = file_url.replace("/uploads/", "")

@@ -2,7 +2,6 @@
 
 from abc import ABC, abstractmethod
 from typing import Optional
-from uuid import UUID
 
 from src.domain.entities.user import User
 
@@ -12,7 +11,7 @@ class IUserRepository(ABC):
     async def save(self, user: User) -> User: ...
 
     @abstractmethod
-    async def find_by_id(self, user_id: UUID) -> Optional[User]: ...
+    async def find_by_id(self, user_id: str) -> Optional[User]: ...
 
     @abstractmethod
     async def find_by_email(self, email: str) -> Optional[User]: ...
@@ -24,4 +23,6 @@ class IUserRepository(ABC):
     async def update(self, user: User) -> User: ...
 
     @abstractmethod
-    async def delete(self, user_id: UUID) -> None: ...
+    async def delete(self, user_id: str) -> None:
+        """회원탈퇴 (soft delete)"""
+        ...

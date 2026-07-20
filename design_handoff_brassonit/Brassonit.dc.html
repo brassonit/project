@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="stylesheet" href="_ds/modernist-008b8abd-b449-4406-bead-8678a17d303a/styles.css">
+<script src="_ds/modernist-008b8abd-b449-4406-bead-8678a17d303a/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--font-heading:"Archivo","Pretendard Variable",Pretendard,system-ui,sans-serif;--font-body:"Archivo","Pretendard Variable",Pretendard,system-ui,sans-serif;--color-bg:#ffffff;--color-text:#000000;--color-accent:#B57EDC;--color-accent-100:color-mix(in oklch,var(--color-accent),white 88%);--color-accent-200:color-mix(in oklch,var(--color-accent),white 72%);--color-accent-300:color-mix(in oklch,var(--color-accent),white 50%);--color-accent-600:color-mix(in oklch,var(--color-accent),black 12%);--color-accent-700:color-mix(in oklch,var(--color-accent),black 32%);--color-divider:#000000;--color-surface:#ffffff}
+html{overflow-x:clip}
+body{background:#fff;color:#000;margin:0}
+html,body{height:auto!important;min-height:100vh}
+body>div{height:auto!important;min-height:100vh}
+.sc-host{height:auto!important;min-height:100vh;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start}
+.sc-host main{flex:1}
+a{color:#000;text-decoration:none}a:hover{color:var(--color-accent-700)}
+.wrap{max-width:1440px;width:100%;box-sizing:border-box;margin:0 auto;padding:0 96px}
+.hdr{padding:20px 0;gap:32px}
+.logo{font-size:26px;font-weight:800;letter-spacing:-0.5px;cursor:pointer;background:none;border:0;padding:0;font-family:var(--font-heading);color:var(--color-accent)}
+.authwrap{margin-left:auto}
+.logosub{display:block;font-size:13px;font-weight:600;letter-spacing:0.5px;color:#888;margin-top:2px;text-align:left;font-family:var(--font-body)}
+.srch{flex:1;max-width:640px;border:1px solid #ccc;border-radius:8px;height:48px;padding:0 12px 0 16px;gap:10px}
+.srch input{flex:1;border:0;outline:0;background:none;font:inherit;font-size:15px;height:100%}
+.authb{background:none;border:1px solid #ccc;border-radius:8px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:8px 14px}
+.authb:hover{color:var(--color-accent-700);border-color:var(--color-accent)}
+.cartn{background:var(--color-accent);color:#fff;font-size:11px;font-weight:700;min-width:18px;height:18px;padding:0 4px}
+.uicon{background:none;border:0;cursor:pointer;padding:6px;color:#000;display:flex;align-items:center}
+.uicon:hover{color:var(--color-accent-700)}
+.cbadge{position:absolute;top:-2px;right:-2px;background:var(--color-accent);color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;padding:0 4px}
+.umenu{position:absolute;top:100%;right:0;background:#fff;border:1px solid #ccc;border-radius:8px;overflow:hidden;min-width:170px;z-index:200;box-shadow:var(--shadow-md)}
+.umenu button{display:block;width:100%;text-align:left;background:none;border:0;font:inherit;font-size:13px;font-weight:600;padding:12px 14px;cursor:pointer}
+.umenu button:hover{background:var(--color-accent-100);color:var(--color-accent-700)}
+.umenu .uout{border-top:1px solid #ddd;color:#888}
+.uname{padding:12px 14px;font-size:12px;color:#888;border-bottom:1px solid #ddd}
+.lth{font-size:28px;font-weight:800;margin:28px 0 24px;font-family:var(--font-heading)}
+.mypg{padding-bottom:100px}
+.qhead{border-bottom:1px solid #ccc;padding:0 0 10px;font-size:12px;font-weight:700;color:#888;letter-spacing:1px}
+.qrow{border-bottom:1px solid #ddd;padding:14px 0}
+.qimg{width:56px;height:56px;object-fit:cover}
+.qcol{width:160px;flex:none}
+.qcol2{width:80px;flex:none;text-align:right}
+.qtag{display:inline-block;background:var(--color-accent-100);color:var(--color-accent-700);font-size:12px;font-weight:700;padding:4px 10px}
+.qdel{background:none;border:1px solid #ccc;border-radius:8px;font:inherit;font-size:12px;padding:6px 12px;cursor:pointer}
+.qdel:hover{border-color:var(--color-accent);color:var(--color-accent-700)}
+.qcold{width:130px;flex:none}
+.qcols{width:110px;flex:none}
+.qcolw{width:110px;flex:none;display:flex;justify-content:flex-start}
+.qdl{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid #ccc;border-radius:8px;font:inherit;font-size:12px;font-weight:600;padding:7px 12px;cursor:pointer}
+.qdl:hover{border-color:var(--color-accent);color:var(--color-accent-700)}
+.qmeta{display:block;font-size:12px;color:#888;margin-top:3px}
+.qcolck{width:56px;flex:none}
+.ckb{width:16px;height:16px;accent-color:var(--color-accent);cursor:pointer}
+.cartft{margin-top:0;border-top:1px solid #ccc;padding-top:16px}
+.qrow:has(+ .cartft){border-bottom:0}
+.qform{max-width:640px}
+.flab{display:block;font-size:12px;font-weight:700;color:#888;margin-bottom:6px;letter-spacing:.5px}
+.req{color:var(--color-accent)}
+.ferr{color:#d0342c;font-size:12px;margin:6px 0 0}
+.qform .mfield input{border:1px solid #ccc;border-radius:8px}
+.qform .mfield input:focus{border-color:var(--color-accent)}
+.qta{width:100%;border:1px solid #ccc;border-radius:8px;padding:12px 14px;font:inherit;font-size:14px;box-sizing:border-box;outline:0;min-height:140px;resize:vertical}
+.qta:focus{border-color:var(--color-accent)}
+.qselect{width:100%;border:1px solid #ccc;border-radius:8px;padding:12px 40px 12px 14px;font:inherit;font-size:14px;box-sizing:border-box;outline:0;background:#fff;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23333333' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 6 8 10 12 6'%3E%3C/polyline%3E%3C/svg%3E");background-size:16px 16px;background-repeat:no-repeat;background-position:right 14px center}
+.qfile{display:inline-block;border:1px solid #ccc;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer}
+.qfile:hover{background:var(--color-accent-100)}
+.qfrow{border-bottom:1px solid #ddd;padding:9px 0}
+.qsub{font-size:15px;font-weight:800;margin:28px 0 12px;font-family:var(--font-heading)}
+.castlnk{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+.qchip{border:1px solid #ddd;border-radius:8px;padding:6px 12px 6px 6px;font-size:13px;font-weight:600}
+.qchip img{width:28px;height:28px;object-fit:cover}
+.qshowbx{border:1px solid #ccc;border-radius:8px;padding:16px}
+.qcol3{width:180px;flex:none;display:flex;justify-content:flex-end;gap:8px}
+.qdel.on{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e5e5e5}
+.gnbrow{gap:8px}
+.gtab{position:relative;background:none;border:0;font:inherit;font-size:16px;font-weight:700;padding:15px 16px;cursor:pointer;margin-right:8px}
+.gnbrow::-webkit-scrollbar{display:none}
+.subbar{display:none;gap:8px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none}
+.subbar::-webkit-scrollbar{display:none}
+.schip{flex:none;border:1px solid #ddd;border-radius:8px;background:#fff;font:inherit;font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer}
+.schip.on{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.gtab::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:transparent}
+.gtab:hover{color:var(--color-accent-600)}
+.gtab:hover::after{background:var(--color-accent)}
+.gtab.hov{color:var(--color-accent-600)}
+.gnbwrap{position:relative;width:max-content;margin-left:-16px}
+.mega{position:absolute;left:50%;transform:translateX(-50%);width:100vw;top:calc(100% + 1px);background:#fff;border-bottom:1px solid #e5e5e5;display:none;z-index:60}
+.gnbwrap:hover + .mega{display:block}
+.mega:hover{display:block}
+.gnb.mega-lock .mega{display:none}
+.megagrid{display:grid;grid-auto-flow:column;grid-auto-columns:200px;justify-content:start;gap:32px 40px;padding:24px 0 36px}
+.mcol .mtitle{font-size:15px;font-weight:800;margin:0 0 14px;cursor:pointer}
+.mcol .mtitle:hover{color:var(--color-accent-600)}
+.msub{display:block;background:none;border:0;font:inherit;font-size:13.5px;color:#333;padding:5px 0;cursor:pointer;text-align:left}
+.msub:hover{color:var(--color-accent-600);font-weight:600}
+.hero{padding:56px 0 48px;display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.herodark{position:relative;overflow:hidden;grid-template-columns:1fr;background:#0d0d12;margin:0 calc(50% - 50vw) 0;width:100vw;padding:72px max(96px,calc(50vw - 624px)) 80px;min-height:500px}
+.heroin{z-index:5;margin-left:20px}
+.herodark .h1{color:#fff}
+.herodark .kick{color:var(--color-accent)}
+.herodark .hli{color:#e8e6e3}
+.herodark .hli svg{color:var(--color-accent-300)}
+.herodark .bigbtn{background:var(--color-accent);border-color:var(--color-accent)}
+.herodark .bigbtn:hover{background:var(--color-accent-600);border-color:var(--color-accent-600)}
+.stagefx{position:absolute;inset:0;pointer-events:none}
+.stgfloor{position:absolute;left:0;right:0;bottom:0;height:11%;background:linear-gradient(#26262e,#121216)}
+.stgfloor::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,235,200,.35),transparent)}
+.beam{position:absolute;top:-12%;height:120%;width:340px;transform-origin:top center;clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);opacity:.85}
+.bm1{left:calc(52% - 40px);background:linear-gradient(to bottom,rgba(255,238,190,.55),rgba(255,238,190,0) 80%);animation:beamsway 5.2s ease-in-out -1s infinite alternate}
+.bm2{left:calc(68% - 40px);background:linear-gradient(to bottom,rgba(236,48,19,.4),rgba(236,48,19,0) 78%);animation:beamsway 6.4s ease-in-out -3s infinite alternate-reverse}
+.bm3{right:calc(2% + 40px);background:linear-gradient(to bottom,rgba(190,215,255,.42),rgba(190,215,255,0) 80%);animation:beamsway 4.6s ease-in-out -2s infinite alternate}
+.spot{position:absolute;bottom:2%;width:420px;height:70px;border-radius:50%;filter:blur(6px)}
+.sp1{left:calc(52% - 40px);background:radial-gradient(ellipse at center,rgba(255,238,190,.28),transparent 70%);animation:spotglow 5.2s ease-in-out -1s infinite alternate}
+.sp2{right:calc(2% + 40px);background:radial-gradient(ellipse at center,rgba(236,48,19,.22),transparent 70%);animation:spotglow 6.4s ease-in-out -3s infinite alternate-reverse}
+.haze{position:absolute;inset:0;background:radial-gradient(ellipse at 75% 0%,rgba(255,255,255,.08),transparent 55%)}
+@keyframes beamsway{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
+@keyframes spotglow{from{opacity:.5;transform:translateX(-40px)}to{opacity:1;transform:translateX(40px)}}
+.kick{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--color-accent-700)}
+.h1{font-size:clamp(36px,4.5vw,60px);line-height:1.05;font-weight:800;letter-spacing:-1.5px;margin:16px 0 24px;font-family:var(--font-heading)}
+.h1 em{font-style:normal;color:var(--color-accent)}
+.hli{gap:10px;font-size:15px;color:#222;padding:6px 0}
+.hli svg{color:var(--color-accent)}
+.heroimg{aspect-ratio:4/3;overflow:hidden}
+.heroimg img{width:100%;height:100%;object-fit:cover}
+.grayscale img{filter:none}
+img{border-radius:8px}
+.heroimg,.simg,.sq,.slider,.vitem iframe{border-radius:8px}
+.slider img{border-radius:0}
+.qimg,.qchip img{border-radius:8px}
+.sect{padding:40px 0 64px}
+.sect0{padding-top:0}
+.sechd{border-top:1px solid #e5e5e5;padding-top:16px;margin-bottom:24px;align-items:baseline}
+.sech2{font-size:24px;font-weight:800;letter-spacing:-0.5px;margin:0;font-family:var(--font-heading)}
+.smeta{font-size:13px;color:#666}
+.moreb2{background:none;border:0;font:inherit;font-size:13px;font-weight:600;color:#666;cursor:pointer;padding:0}
+.moreb2:hover{color:var(--color-accent-700)}
+.showg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.showc{cursor:pointer;border:0;background:none;padding:0;text-align:left;font:inherit}
+.showc:hover .simg img{transform:scale(1.03)}
+.simg{aspect-ratio:16/10;overflow:hidden;margin-bottom:14px}
+.simg img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.sdate{font-size:12px;font-weight:700;color:var(--color-accent-700);letter-spacing:1px}
+.stitle{font-size:19px;font-weight:800;margin:6px 0 6px}
+.sline{font-size:13.5px;color:#555;line-height:1.5}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:24px 20px}
+.grid5>*{min-width:0}
+.acard{cursor:pointer}
+.sq{aspect-ratio:1;overflow:hidden;background:#f0eef2}
+.sq img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.acard:hover .sq img{transform:scale(1.04)}
+.likeb{position:absolute;right:10px;bottom:10px;background:none;border:0;cursor:pointer;color:#fff;padding:4px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+.likeb.on{color:var(--color-accent)}
+.likeb.on svg{fill:var(--color-accent)}
+.aname{font-size:15.5px;font-weight:700;margin:12px 0 4px}
+.adesc{font-size:13px;color:#555;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0 0 10px}
+.stat{gap:5px;font-size:12.5px;color:#666;white-space:nowrap}
+.cartb{margin-left:auto;background:none;border:1px solid #ccc;border-radius:8px;width:29px;height:29px;padding:0;cursor:pointer;color:#333;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.cartb svg{display:block}
+.cartb:hover{border-color:var(--color-accent);color:var(--color-accent-700)}
+.cartb.on{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.crumb{font-size:13px;color:#666;padding:24px 0 0;gap:6px}
+.crumb button{background:none;border:0;font:inherit;color:#666;cursor:pointer;padding:0}
+.crumb button:hover{color:var(--color-accent-700)}
+.dtl{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:32px 0 80px}
+.dtl2{grid-template-columns:1.2fr 1fr}
+.slider{position:relative;aspect-ratio:1;overflow:hidden;background:#f0eef2}
+.slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.snav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:0;width:44px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.snav:hover{background:var(--color-accent)}
+.dots{position:absolute;left:0;right:0;bottom:14px;gap:8px;justify-content:center;display:flex}
+.dot2{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);border:0;padding:0;cursor:pointer}
+.dot2.on{background:var(--color-accent)}
+.dname{font-size:34px;font-weight:800;letter-spacing:-1px;margin:8px 0 18px;font-family:var(--font-heading)}
+.drow{border-top:1px solid #ddd;padding:14px 0;gap:24px;font-size:14.5px}
+.dlab{width:80px;font-weight:700;color:#888;font-size:12.5px;letter-spacing:1px;flex:none}
+.ddesc{font-size:15px;line-height:1.7;color:#333;margin:18px 0 26px}
+.dstats{gap:20px;font-size:13.5px;color:#666;margin-bottom:28px}
+.bigbtn{flex:1;border:1px solid #000;border-radius:8px;background:#000;color:#fff;font:inherit;font-size:15px;font-weight:700;padding:16px 20px;cursor:pointer;text-align:left}
+.bigbtn:hover{background:var(--color-accent-600);border-color:var(--color-accent-600)}
+.bigbtn svg{flex:none}
+.btxt{white-space:nowrap}
+.bigbtn.ghost{background:#fff;color:#000;border-color:#ccc}
+.bigbtn.ghost:hover{background:var(--color-accent-100)}
+.herodark .ghost{background:rgba(13,13,18,.65);color:#fff;border-color:rgba(255,255,255,.45)}
+.herodark .ghost:hover{background:rgba(255,255,255,.12)}
+.empty{padding:80px 0;text-align:center;color:#888;font-size:15px}
+.pfrow{padding:6px 0;gap:24px;font-size:14.5px;line-height:1.6}
+.pftag{width:80px;flex:none;font-weight:700;color:#888;font-size:12.5px;letter-spacing:1px;padding-top:2px}
+.moreb{width:100%;border:1px solid #ccc;border-radius:8px;background:#fff;font:inherit;font-weight:700;font-size:14px;padding:14px 18px;cursor:pointer;margin-top:18px;text-align:left;box-sizing:border-box}
+.moreb:hover{background:var(--color-accent-100)}
+.vidg{display:grid;grid-template-columns:1fr;gap:48px;max-width:960px}
+.introwrap{max-width:960px;font-size:15px;line-height:1.9;color:#333}
+.introwrap p{margin:0 0 1em}
+.introwrap.clamp{max-height:9.5em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 7.6em,transparent)}
+.introwrap.clamp p{margin:0}
+.pager{display:flex;gap:6px;justify-content:center;margin-top:40px}
+.pgb{min-width:38px;height:38px;border:1px solid #ccc;border-radius:8px;background:#fff;font:inherit;font-weight:700;font-size:13px;cursor:pointer;padding:0 8px}
+.pgb:hover{background:var(--color-accent-100)}
+.pgb.on{background:#000;border-color:#000;color:#fff}
+.pgb:disabled{opacity:.35;cursor:default;background:#fff}
+.topb{position:fixed;right:28px;bottom:28px;z-index:60;width:48px;height:48px;border:1px solid #ccc;border-radius:8px;background:#fff;color:#000;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md)}
+.topb:hover{background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+.pfgh{font-size:15px;font-weight:800;letter-spacing:0.5px;margin:28px 0 6px;color:var(--color-accent-700)}
+.mstat{display:none;text-align:center;font-size:12.5px;color:#888;margin-top:28px}
+.vitem iframe{width:100%;aspect-ratio:16/9;border:0;background:#000;display:block}
+.vtitle{font-size:14px;font-weight:700;margin-top:10px}
+.mbk{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:flex;align-items:center;justify-content:center}
+.modal{background:#fff;width:400px;max-width:calc(100vw - 40px);padding:36px;border:1px solid #ccc;border-radius:8px}
+.mfield{margin-bottom:14px}
+.mfield input{width:100%;border:1px solid #ccc;border-radius:8px;padding:12px 14px;font:inherit;font-size:14px;box-sizing:border-box;outline:0}
+.mfield input:focus{border-color:var(--color-accent)}
+.mnote{font-size:12.5px;color:#888;margin-top:14px}
+.verbox{border-top:1px solid #ddd;margin-top:36px;padding-top:20px}
+.authpg{max-width:420px;margin:0 auto;padding:72px 0 120px}
+.atitle{font-size:24px;font-weight:800;margin:0 0 26px;font-family:var(--font-heading)}
+.aerr{color:#d0342c;font-size:13px;margin:0 0 14px}
+.aok{color:var(--color-accent-700);font-size:14px;margin:0 0 16px;line-height:1.6}
+.albtn{background:none;border:0;font:inherit;color:var(--color-accent-700);font-weight:700;cursor:pointer;text-decoration:underline;padding:0}
+.xb{position:absolute;top:14px;right:14px;background:none;border:0;cursor:pointer;padding:6px}
+.ftr{border-top:1px solid #e5e5e5;padding:16px 96px 20px 96px;font-size:13px;color:#666;gap:24px}
+.ftrb{background:none;border:0;font:inherit;font-size:13px;color:#666;cursor:pointer;padding:0}
+.ftrb:hover{color:var(--color-accent-700)}
+.snsb{display:flex;align-items:center;justify-content:center;color:#201e1d}
+.snsb:hover{color:var(--color-accent-700)}
+.ftgrid{display:grid;grid-template-columns:1fr auto;gap:10px 24px;align-items:center}
+.ftm{grid-row:1}
+.ftrc{grid-row:2;grid-column:1}
+.snsw{grid-row:1;grid-column:2}
+.docpg{max-width:820px;padding:16px 0 100px}
+.doch1{font-size:28px;font-weight:800;margin:24px 0 8px;font-family:var(--font-heading)}
+.docsub{font-size:14px;color:#888;margin:0 0 36px}
+.doch2{font-size:17px;font-weight:800;margin:36px 0 10px}
+.docp{font-size:14.5px;line-height:1.8;color:#333;margin:0 0 12px}
+.docli{font-size:14.5px;line-height:1.8;color:#333;margin:0 0 6px;padding-left:14px;position:relative}
+.docli::before{content:'·';position:absolute;left:0;font-weight:800;color:var(--color-accent)}
+.histy{width:72px;flex:none;font-weight:800;color:var(--color-accent-700);font-size:14px}
+.srchd{font-size:18px;font-weight:800;margin:0 0 18px;padding-top:8px}
+.srchd span{color:var(--color-accent-700);font-weight:700;font-size:13px;margin-left:10px}
+@media (max-width:1100px){.grid5{grid-template-columns:repeat(3,1fr)}.megagrid{grid-template-columns:repeat(3,180px)}.acard .vstat{display:none}.dtl,.dtl.dtl2{grid-template-columns:1fr;gap:32px}.dtl .sq{max-width:520px}.dtl2 .simg{max-width:640px}}
+@media (max-width:620px){.wrap{padding:0 20px}.gnbrow{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}.gtab{flex:none;white-space:nowrap}.gtab::after{display:none}.mega{display:none!important}.subbar{display:flex}}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.ftr{flex-wrap:wrap;gap:10px 16px;padding-top:16px;padding-bottom:20px}.ftgrid{grid-template-columns:1fr}.ftm{grid-row:1}.snsw{grid-row:2;grid-column:1;justify-content:flex-start}.ftrc{grid-row:3;grid-column:1}.showg{grid-template-columns:1fr}.srch{max-width:none}}
+@media (max-width:620px){.grid5{grid-template-columns:repeat(2,1fr)}.hdr{flex-wrap:wrap}.srch{order:3;flex-basis:100%}.pager{display:none}.mstat{display:block}.vstat{display:none}.btxt{display:none}.bigbtn.ghost.fx{flex:none}}
+</style>
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+</helmet>
+<header class="wrap"><div class="fx ac hdr"><button class="logo" onClick="{{ goHome }}">brasso<span>nit</span><span class="logosub">공연기획사 브라소닛</span></button><div class="fx ac srch"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input placeholder="어떤 아티스트를 찾으세요?" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onQKey }}"></div><div class="fx ac gap12 noshrink authwrap"><sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}"><button class="authb" onClick="{{ goSignup }}">회원가입</button><button class="authb" onClick="{{ goLogin }}" style="background:#000;border-color:#000;color:#fff;padding:8px 16px">로그인</button></sc-if><sc-if value="{{ loggedIn }}"><div class="posrel" onMouseLeave="{{ closeUserMenu }}"><button class="uicon" onClick="{{ toggleUserMenu }}" title="내 계정"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path></svg></button><sc-if value="{{ userMenuOpen }}"><div class="umenu"><span class="uname" style="display:block;width:100%;text-align:left;border-bottom:1px solid #ddd;font-size:13px;font-weight:600;box-sizing:border-box">{{ userName }}님</span><button onClick="{{ goProfile }}">회원정보</button><button onClick="{{ goQuotes }}">견적내역</button><button class="uout" onClick="{{ logout }}">로그아웃</button></div></sc-if></div><button class="uicon" onClick="{{ goWishlist }}" title="찜리스트"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><button class="uicon posrel" onClick="{{ goCart }}" title="장바구니"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg><sc-if value="{{ hasCart }}"><span class="fx ac jc cbadge">{{ cartCount }}</span></sc-if></button></sc-if></div></div></header>
+<nav class="gnb {{ megaLockCls }}" onMouseLeave="{{ clearHover }}"><div class="wrap posrel"><div class="gnbwrap"><div class="fx ac gnbrow"><sc-for list="{{ menus }}" as="m" hint-placeholder-count="5"><button class="gtab {{ m.cls }} {{ m.hovCls }}" onClick="{{ m.open }}" onMouseEnter="{{ m.hover }}">{{ m.name }}</button></sc-for></div></div><div class="mega"><div class="wrap"><div class="megagrid"><sc-for list="{{ menus }}" as="m" hint-placeholder-count="5"><div class="mcol"><h3 class="mtitle" onClick="{{ m.open }}">{{ m.name }}</h3><sc-for list="{{ m.subs }}" as="s" hint-placeholder-count="3"><button class="msub" onClick="{{ s.open }}">{{ s.name }}</button></sc-for></div></sc-for></div></div></div><sc-if value="{{ showSubBar }}"><div class="subbar"><sc-for list="{{ subBar }}" as="sb" hint-placeholder-count="4"><button class="schip {{ sb.cls }}" onClick="{{ sb.open }}">{{ sb.name }}</button></sc-for></div></sc-if></div></nav>
+<main class="wrap">
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}"><section data-screen-label="홈 - 기획공연 소개"><div class="hero herodark"><div class="stagefx"><div class="beam bm1"></div><div class="beam bm2"></div><div class="beam bm3"></div><div class="stgfloor"></div><div class="spot sp1"></div><div class="spot sp2"></div><div class="haze"></div></div><div class="posrel heroin"><div class="kick">BRASSONIT PRODUCTION</div><h1 class="h1">무대를 완성하는<br>단 하나의 <em>섭외</em></h1><div class="fx gap12 mt16"><button class="bigbtn noshrink" style="flex:none" onClick="{{ goSingers }}">아티스트 둘러보기</button><button class="bigbtn ghost" style="flex:none" onClick="{{ goQuoteFormDirect }}">섭외 문의하기</button></div></div></div><div class="sect sect0"><div class="fx jb sechd" style="padding-top: 24px"><h2 class="sech2">브라소닛 기획공연</h2><button class="moreb2" onClick="{{ goShows }}">더보기 ›</button></div><div class="showg"><sc-for list="{{ shows }}" as="sh" hint-placeholder-count="3"><button class="showc" onClick="{{ sh.open }}"><div class="simg"><img src="{{ sh.img }}" alt="{{ sh.title }}"></div><div class="sdate">{{ sh.date }}</div><div class="stitle">{{ sh.title }}</div><p class="sline m0">{{ sh.line }}</p><div class="fx ac gap12 mt8"><span class="fx ac stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>{{ sh.likesF }}</span><span class="fx ac stat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></svg>{{ sh.viewsF }}</span></div></button></sc-for></div></div></section></sc-if>
+<sc-if value="{{ isShows }}"><section data-screen-label="공연 목록" class="mypg"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">기획공연</span></div><h2 class="qsub" style="margin-top:28px">예정 공연</h2><div class="showg"><sc-for list="{{ showsUpcoming }}" as="sh" hint-placeholder-count="3"><button class="showc" onClick="{{ sh.open }}"><div class="simg"><img src="{{ sh.img }}" alt="{{ sh.title }}"></div><div class="sdate">{{ sh.date }}</div><div class="stitle">{{ sh.title }}</div><p class="sline m0">{{ sh.line }}</p><div class="fx ac gap12 mt8"><span class="fx ac stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>{{ sh.likesF }}</span><span class="fx ac stat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></svg>{{ sh.viewsF }}</span></div></button></sc-for></div><h2 class="qsub" style="margin-top:48px">지난 공연</h2><div class="showg"><sc-for list="{{ showsPast }}" as="sh" hint-placeholder-count="6"><button class="showc" onClick="{{ sh.open }}"><div class="simg"><img src="{{ sh.img }}" alt="{{ sh.title }}"></div><div class="sdate">{{ sh.date }}</div><div class="stitle">{{ sh.title }}</div><p class="sline m0">{{ sh.line }}</p><div class="fx ac gap12 mt8"><span class="fx ac stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>{{ sh.likesF }}</span><span class="fx ac stat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></svg>{{ sh.viewsF }}</span></div></button></sc-for></div></section></sc-if>
+<sc-if value="{{ isSearch }}"><section data-screen-label="검색 결과"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">{{ listTitle }}</span></div><div class="sect" style="padding-top:20px"><sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ searchGroups }}" as="g" hint-placeholder-count="2"><div class="fx jb sechd"><h2 class="srchd m0" style="border:0;padding:0">{{ g.cat }}<span>{{ g.count }}팀</span></h2></div><div class="grid5" style="margin-bottom:48px"><sc-for list="{{ g.cards }}" as="c" hint-placeholder-count="5"><div class="acard" onClick="{{ c.open }}"><div class="sq posrel"><img src="{{ c.img }}" alt="{{ c.name }}"></div><div class="aname">{{ c.name }}</div><p class="adesc">{{ c.desc }}</p></div></sc-for></div></sc-for></sc-if><sc-if value="{{ noResults }}"><div class="empty">검색결과가 없습니다.</div></sc-if></div></section></sc-if>
+<sc-if value="{{ isShow }}"><section data-screen-label="공연 상세"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><button class="fw6" style="color:#000" onClick="{{ goShows }}">기획공연</button></div><div class="dtl dtl2"><div class="simg m0" style="aspect-ratio:16/10"><img src="{{ shImg }}" alt="{{ shTitle }}" style="width:100%;height:100%;object-fit:cover"></div><div><div class="kick">BRASSONIT PRODUCTION</div><h1 class="dname">{{ shTitle }}</h1><div class="fx ac gap16 mb16"><span class="fx ac stat">♥ 좋아요 {{ shLikes }}</span><span class="fx ac stat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></svg> 조회 {{ shViews }}</span></div><div class="fx drow"><span class="dlab">일시·장소</span><span>{{ shDate }}</span></div><div class="fx drow"><span class="dlab">소개</span><span style="line-height:1.7">{{ shLine }}</span></div><div class="fx drow" style="border-bottom:1px solid #ddd"><span class="dlab">출연진</span><span class="fx gap12" style="flex-wrap:wrap"><sc-for list="{{ shLineup }}" as="a" hint-placeholder-count="3"><button class="castlnk" onClick="{{ a.open }}">{{ a.name }}</button></sc-for></span></div><div class="col gap8" style="margin-top:28px"><sc-for list="{{ shTickets }}" as="t" hint-placeholder-count="1"><button class="bigbtn ghost w100 bbox" onClick="{{ t.go }}">예매 바로가기 · {{ t.label }} ↗</button></sc-for></div><div class="fx gap12" style="margin-top:12px;justify-content:flex-end"><button class="bigbtn" style="flex:none" onClick="{{ shInquiry }}">공연 문의하기</button><button class="bigbtn ghost fx ac gap8" style="flex:none" onClick="{{ shShare }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.59 13.51 6.83 3.98m-.01-10.98-6.82 3.98"></path></svg><span class="btxt">{{ shShareLabel }}</span></button><button class="bigbtn ghost" style="flex:none" onClick="{{ toggleShowLike }}"><span style="color:{{ shLikeColor }}">♥</span></button></div></div></div><div class="sect" style="padding-top:0"><div class="fx jb sechd"><h2 class="sech2">공연 소개</h2></div><div class="introwrap {{ shIntroCls }}"><sc-for list="{{ shIntro }}" as="p" hint-placeholder-count="4"><p>{{ p }}</p></sc-for></div><button class="moreb" style="max-width:960px" onClick="{{ shIntroToggle }}">{{ shIntroMoreLabel }}</button></div><div class="sect" style="padding-top:0"><div class="fx jb sechd"><h2 class="sech2">공연 영상</h2></div><div class="vidg"><sc-for list="{{ shVids }}" as="v" hint-placeholder-count="3"><div class="vitem"><iframe src="{{ v.src }}" title="{{ v.title }}" allowfullscreen="{{ true }}" loading="lazy"></iframe></div></sc-for></div><sc-if value="{{ shVidHasMore }}"><button class="moreb" style="max-width:960px" onClick="{{ shVidToggle }}">{{ shVidMoreLabel }}</button></sc-if></div></section></sc-if>
+<sc-if value="{{ isAbout }}"><section data-screen-label="브라소닛 소개"><div class="docpg wrap" style="padding-left:0;padding-right:0"><h1 class="doch1">브라소닛 소개</h1><p class="docsub">BRASSONIT — 연예인 섭외대행 · 공연기획</p><h2 class="doch2">회사 소개</h2><p class="docp">브라소닛(brassonit)은 연예인 섭외대행과 공연기획을 전문으로 하는 엔터테인먼트 에이전시입니다. 대중가수, 연주자, 강연자, 사회자, 퍼포먼스 팀까지 300여 팀의 검증된 아티스트 네트워크를 바탕으로 기업 행사, 지역 축제, 대학 행사, 방송 무대에 최적의 라인업을 제안합니다.</p><p class="docp">단순 중개를 넘어 행사 기획, 출연 계약, 리허설, 무대 운영까지 전 과정을 원스톱으로 대행하며, 모든 견적 문의에 24시간 이내 회신을 원칙으로 합니다.</p><h2 class="doch2">회사 연혁</h2><sc-for list="{{ history }}" as="h" hint-placeholder-count="6"><div class="fx pfrow"><span class="histy">{{ h.y }}</span><span>{{ h.t }}</span></div></sc-for><h2 class="doch2">주요 기획공연</h2><sc-for list="{{ aboutShows }}" as="sh" hint-placeholder-count="3"><div class="fx pfrow"><span class="histy" style="width:150px">{{ sh.date }}</span><span><b>{{ sh.title }}</b> — {{ sh.line }}</span></div></sc-for></div></section></sc-if>
+<sc-if value="{{ isTerms }}"><section data-screen-label="이용약관"><div class="docpg"><h1 class="doch1">이용약관</h1><h2 class="doch2">제1조 (목적)</h2><p class="docp">이 약관은 브라소닛(이하 "회사")이 운영하는 연예인 섭외대행 서비스(이하 "서비스")의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p><h2 class="doch2">제2조 (정의)</h2><p class="docli">"서비스"란 회사가 제공하는 아티스트 검색, 섭외 견적 문의, 출연 계약 중개 및 공연기획 대행 일체를 말합니다.</p><p class="docli">"이용자"란 이 약관에 따라 서비스를 이용하는 회원 및 비회원을 말합니다.</p><p class="docli">"아티스트"란 회사와 협약을 맺고 서비스에 등록된 가수, 연주자, 강연자, 사회자, 퍼포먼스 팀 등을 말합니다.</p><h2 class="doch2">제3조 (섭외 계약의 성립)</h2><p class="docli">이용자의 견적 문의는 청약의 유인이며, 회사가 아티스트 측 확인을 거쳐 출연 조건을 회신하고 이용자가 동의한 때에 계약이 성립합니다.</p><p class="docli">출연료, 이동·숙박, 무대·음향 조건 등 세부사항은 개별 계약서에 따릅니다.</p><h2 class="doch2">제4조 (취소 및 환불)</h2><p class="docli">행사일 30일 전 취소 시 계약금 전액 환불, 15일 전 50%, 7일 이내 취소 시 환불이 불가합니다.</p><p class="docli">아티스트의 귀책사유(질병, 사고 등)로 출연이 불가한 경우 회사는 동급 아티스트 대체 또는 전액 환불을 제안합니다.</p><p class="docli">천재지변 등 불가항력으로 인한 행사 취소 시 양측 협의를 통해 일정 변경 또는 환불을 진행합니다.</p><h2 class="doch2">제5조 (회사의 의무)</h2><p class="docli">회사는 등록 아티스트의 프로필·경력 정보를 성실히 검증하여 제공합니다.</p><p class="docli">회사는 계약된 공연의 정상 진행을 위해 리허설 및 무대 운영을 지원합니다.</p><h2 class="doch2">제6조 (이용자의 의무)</h2><p class="docli">이용자는 견적 문의 시 행사 일시, 장소, 규모 등 정확한 정보를 제공해야 합니다.</p><p class="docli">이용자는 아티스트의 초상권·저작권을 침해하는 무단 촬영·녹음·2차 이용을 할 수 없습니다.</p><h2 class="doch2">제7조 (면책)</h2><p class="docp">회사는 이용자와 아티스트 간 개별 합의로 발생한 분쟁, 이용자의 귀책사유로 인한 손해에 대해 책임을 지지 않습니다. 이 약관에 명시되지 않은 사항은 관련 법령 및 상관례에 따릅니다.</p><h2 class="doch2">부칙</h2><p class="docp">이 이용약관은 {{ termsVerKo }}부터 적용됩니다.</p><div class="verbox"><select class="qselect" style="max-width:320px" value="{{ termsVer }}" onChange="{{ onTermsVer }}"><sc-for list="{{ termsVers }}" as="v" hint-placeholder-count="1"><option value="{{ v.val }}">이용약관 ({{ v.val }})</option></sc-for></select></div></div></section></sc-if>
+<sc-if value="{{ isPrivacy }}"><section data-screen-label="개인정보취급방침"><div class="docpg"><h1 class="doch1">개인정보취급방침</h1><h2 class="doch2">1. 수집하는 개인정보 항목</h2><p class="docli">회원가입 : 이메일, 비밀번호</p><p class="docli">섭외 견적 문의 : 담당자명, 연락처, 소속(회사/단체명), 행사 정보(일시·장소·규모·예산)</p><p class="docli">자동 수집 : 서비스 이용기록, 접속 로그, 쿠키</p><h2 class="doch2">2. 개인정보의 수집 및 이용 목적</h2><p class="docli">회원 식별, 로그인 및 이메일 인증 등 회원 관리</p><p class="docli">아티스트 섭외 견적 산출, 출연 계약 체결 및 이행, 행사 진행 연락</p><p class="docli">좋아요·장바구니 등 맞춤형 서비스 제공, 서비스 개선 통계 분석</p><h2 class="doch2">3. 개인정보의 보유 및 이용 기간</h2><p class="docli">회원 정보 : 회원 탈퇴 시까지 (탈퇴 즉시 파기)</p><p class="docli">계약·결제 기록 : 전자상거래법에 따라 5년</p><p class="docli">소비자 불만·분쟁 처리 기록 : 3년</p><h2 class="doch2">4. 개인정보의 제3자 제공</h2><p class="docp">회사는 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 다만, 섭외 계약 진행에 필요한 최소한의 정보(담당자명, 연락처, 행사 정보)를 해당 아티스트 소속사에 제공하며, 이용자가 사전에 동의한 경우와 법령에 의한 경우는 예외로 합니다.</p><h2 class="doch2">5. 개인정보의 파기 절차 및 방법</h2><p class="docp">보유 기간이 경과하거나 처리 목적이 달성된 개인정보는 지체 없이 파기합니다. 전자적 파일은 복구 불가능한 방법으로 삭제하고, 종이 문서는 분쇄 또는 소각합니다.</p><h2 class="doch2">6. 이용자의 권리</h2><p class="docp">이용자는 언제든지 자신의 개인정보를 조회·수정·삭제하거나 처리 정지를 요구할 수 있습니다. 관련 문의는 개인정보 보호책임자(privacy@brassonit.com)에게 연락해 주시기 바랍니다.</p><h2 class="doch2">부칙</h2><p class="docp">이 개인정보취급방침은 {{ privacyVerKo }}부터 적용됩니다.</p><div class="verbox"><select class="qselect" style="max-width:320px" value="{{ privacyVer }}" onChange="{{ onPrivacyVer }}"><sc-for list="{{ privacyVers }}" as="v" hint-placeholder-count="1"><option value="{{ v.val }}">개인정보취급방침 ({{ v.val }})</option></sc-for></select></div></div></section></sc-if>
+<sc-if value="{{ isList }}"><section data-screen-label="카테고리 목록"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><sc-if value="{{ crumbCat }}"><button onClick="{{ crumbCatGo }}">{{ crumbCat }}</button></sc-if><sc-if value="{{ crumbSub }}"><span>›</span><span class="fw6" style="color:#000">{{ crumbSub }}</span></sc-if><sc-if value="{{ crumbPlain }}"><span class="fw6" style="color:#000">{{ listTitle }}</span></sc-if></div><div class="sect" style="padding-top:20px"><sc-if value="{{ hasCards }}" hint-placeholder-val="{{ true }}"><div class="grid5"><sc-for list="{{ cards }}" as="c" hint-placeholder-count="10"><div class="acard" onClick="{{ c.open }}"><div class="sq posrel"><img src="{{ c.img }}" alt="{{ c.name }}"></div><div class="aname">{{ c.name }}</div><p class="adesc">{{ c.desc }}</p><div class="fx ac gap12"><span class="fx ac stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>{{ c.likes }}</span><span class="fx ac stat vstat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></svg>{{ c.views }}</span><button class="cartb likeb2 {{ c.likeCls }}" onClick="{{ c.like }}" title="좋아요"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><button class="cartb {{ c.cartCls }}" style="margin-left:0" onClick="{{ c.cart }}" title="장바구니"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></sc-for></div><sc-if value="{{ showPager }}"><div class="pager"><button class="pgb" onClick="{{ pgPrev }}" disabled="{{ pgPrevDis }}">‹</button><sc-for list="{{ pages }}" as="pg" hint-placeholder-count="2"><button class="pgb {{ pg.cls }}" onClick="{{ pg.go }}">{{ pg.n }}</button></sc-for><button class="pgb" onClick="{{ pgNext }}" disabled="{{ pgNextDis }}">›</button></div></sc-if><div class="mstat">{{ mStat }}</div></sc-if><sc-if value="{{ noCards }}"><div class="empty">검색 결과가 없습니다.</div></sc-if></div></section></sc-if>
+<sc-if value="{{ isDetail }}"><section data-screen-label="아티스트 상세"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><button onClick="{{ goDetailCat }}">{{ dCat }}</button><span>›</span><button class="fw6" style="color:#000" onClick="{{ goDetailSub }}">{{ dSubName }}</button></div><div class="dtl"><div class="slider"><img src="{{ dImg }}" alt="{{ dName }}"><sc-if value="{{ dMulti }}"><button class="snav" style="left:0" onClick="{{ slidePrev }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"></path></svg></button><button class="snav" style="right:0" onClick="{{ slideNext }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg></button><div class="dots"><sc-for list="{{ dDots }}" as="d" hint-placeholder-count="3"><button class="dot2 {{ d.cls }}" onClick="{{ d.go }}"></button></sc-for></div></sc-if></div><div><div class="kick">{{ dSub }}</div><h1 class="dname">{{ dName }}</h1><div class="fx dstats"><span class="fx ac stat">♥ 좋아요 {{ dLikes }}</span><span class="fx ac stat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"></path><circle cx="12" cy="12" r="3"></circle></svg> 조회 {{ dViews }}</span></div><div class="fx drow"><span class="dlab">장르</span><span>{{ dGenre }}</span></div><div class="fx drow"><span class="dlab">인원</span><span>{{ dMembers }}</span></div><div class="fx drow" style="border-bottom:1px solid #ddd"><span class="dlab">소개</span><span style="line-height:1.7">{{ dDesc }}</span></div><div class="fx gap12 mt16" style="margin-top:28px"><button class="bigbtn" onClick="{{ dInquiry }}">섭외 견적 요청</button><button class="bigbtn ghost fx ac gap8" onClick="{{ dCartClick }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg><span class="btxt">{{ dCartLabel }}</span></button><button class="bigbtn ghost fx ac gap8" style="flex:none" onClick="{{ dShare }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.59 13.51 6.83 3.98m-.01-10.98-6.82 3.98"></path></svg><span class="btxt">{{ dShareLabel }}</span></button><button class="bigbtn ghost" style="flex:none" onClick="{{ dLikeClick }}"><span style="color:{{ dLikeColor }}">♥</span></button></div></div></div><div class="sect" style="padding-top:0"><div class="fx jb sechd"><h2 class="sech2">포트폴리오</h2></div><sc-for list="{{ pfGroups }}" as="g" hint-placeholder-count="3"><div class="pfgh">{{ g.tag }}</div><sc-for list="{{ g.items }}" as="p" hint-placeholder-count="2"><div class="fx pfrow"><span class="pftag">{{ p.year }}</span><span>{{ p.text }}</span></div></sc-for></sc-for><sc-if value="{{ pfHasMore }}"><button class="moreb" onClick="{{ pfToggle }}">{{ pfMoreLabel }}</button></sc-if></div><div class="sect" style="padding-top:0"><div class="fx jb sechd"><h2 class="sech2">영상</h2></div><div class="vidg"><sc-for list="{{ vids }}" as="v" hint-placeholder-count="3"><div class="vitem"><iframe src="{{ v.src }}" title="{{ v.title }}" allowfullscreen="{{ true }}" loading="lazy"></iframe></div></sc-for></div><sc-if value="{{ vidHasMore }}"><button class="moreb" onClick="{{ vidToggle }}">{{ vidMoreLabel }}</button></sc-if></div></section></sc-if>
+<sc-if value="{{ isLogin }}"><section data-screen-label="로그인"><div class="authpg"><h1 class="atitle">로그인</h1><div class="mfield"><input placeholder="이메일" value="{{ email }}" onChange="{{ onEmail }}"></div><div class="mfield"><input type="password" placeholder="비밀번호" value="{{ pw }}" onChange="{{ onPw }}"></div><sc-if value="{{ authErr }}"><p class="aerr">{{ authErr }}</p></sc-if><sc-if value="{{ authOk }}"><p class="aok">{{ authOk }}</p></sc-if><sc-if value="{{ needVerify }}"><button class="moreb" onClick="{{ doVerify }}" style="margin:0 0 14px">이메일 인증 완료하기 (데모)</button></sc-if><button class="bigbtn w100 bbox" onClick="{{ doLogin }}">로그인</button><p class="mnote">계정이 없으신가요? <button class="albtn" onClick="{{ goSignup }}">회원가입</button></p></div></section></sc-if>
+<sc-if value="{{ isSignup }}"><section data-screen-label="회원가입"><div class="authpg"><h1 class="atitle">회원가입</h1><sc-if value="{{ notSignupDone }}" hint-placeholder-val="{{ true }}"><div class="mfield"><input placeholder="이메일" value="{{ email }}" onChange="{{ onEmail }}"></div><div class="mfield"><input type="password" placeholder="비밀번호 (8자 이상)" value="{{ pw }}" onChange="{{ onPw }}"></div><div class="mfield"><input type="password" placeholder="비밀번호 확인" value="{{ pw2 }}" onChange="{{ onPw2 }}"></div><sc-if value="{{ authErr }}"><p class="aerr">{{ authErr }}</p></sc-if><button class="bigbtn w100 bbox" onClick="{{ doSignup }}">가입하기</button></sc-if><sc-if value="{{ signupDone }}"><p class="aok">{{ authOk }}</p><sc-if value="{{ needVerify }}"><button class="moreb" onClick="{{ doVerify }}" style="margin:0 0 14px">이메일 인증 완료하기 (데모)</button></sc-if><sc-if value="{{ verifiedNow }}"><button class="bigbtn w100 bbox" onClick="{{ goLogin }}">로그인 하러 가기</button></sc-if></sc-if><p class="mnote">이미 계정이 있으신가요? <button class="albtn" onClick="{{ goLogin }}">로그인</button></p></div></section></sc-if>
+<sc-if value="{{ isQuotes }}"><section data-screen-label="견적내역" class="mypg"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">견적내역</span></div><h1 class="lth">견적내역</h1><sc-if value="{{ qSent }}"><p class="aok">견적서가 접수되었습니다. 24시간 이내에 회신드리겠습니다.</p></sc-if><sc-if value="{{ hasQuotes }}" hint-placeholder-val="{{ true }}"><div class="fx qhead"><span class="qcold">일자</span><span class="qcols">상태</span><span class="f1">제목</span><span class="qcolw">견적서</span></div><sc-for list="{{ quoteList }}" as="r" hint-placeholder-count="2"><div class="fx ac qrow"><span class="qcold fs13">{{ r.date }}</span><span class="qcols"><span class="qtag">{{ r.status }}</span></span><span class="f1"><span class="fw6 fs14">{{ r.title }}</span><span class="qmeta">{{ r.meta }}</span></span><span class="qcolw"><sc-if value="{{ r.hasDoc }}"><button class="qdl" onClick="{{ r.download }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>다운로드</button></sc-if><sc-if value="{{ r.noDoc }}"><span class="fs12" style="color:#bbb">대기중</span></sc-if></span></div></sc-for><sc-if value="{{ qShowPager }}"><div class="pager"><button class="pgb" onClick="{{ qPgPrev }}" disabled="{{ qPgPrevDis }}">‹</button><sc-for list="{{ qPages }}" as="pg" hint-placeholder-count="2"><button class="pgb {{ pg.cls }}" onClick="{{ pg.go }}">{{ pg.n }}</button></sc-for><button class="pgb" onClick="{{ qPgNext }}" disabled="{{ qPgNextDis }}">›</button></div></sc-if></sc-if><sc-if value="{{ noQuotes }}"><div class="empty">견적 내역이 없습니다.<br>장바구니에서 아티스트를 선택해 견적서를 보내보세요.</div></sc-if></section></sc-if>
+<sc-if value="{{ isCart }}"><section data-screen-label="장바구니" class="mypg"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">장바구니</span></div><h1 class="lth">장바구니</h1><sc-if value="{{ hasCart }}" hint-placeholder-val="{{ true }}"><div class="fx ac qhead"><label class="fx ac gap8 qcolck pointer"><input type="checkbox" class="ckb" checked="{{ allCk }}" onChange="{{ toggleAll }}">전체</label><span class="f1">아티스트</span><span class="qcol">카테고리</span><span class="qcol2"></span></div><sc-for list="{{ cartRows }}" as="r" hint-placeholder-count="2"><div class="fx ac qrow"><span class="qcolck"><input type="checkbox" class="ckb" checked="{{ r.ck }}" onChange="{{ r.toggleCk }}"></span><div class="fx ac gap12 f1 pointer" onClick="{{ r.open }}"><img class="qimg" src="{{ r.img }}" alt="{{ r.name }}"><span class="fw6 fs14">{{ r.name }}</span></div><span class="qcol fs13">{{ r.cat }}</span><span class="qcol2"><button class="qdel" onClick="{{ r.remove }}">삭제</button></span></div></sc-for><div class="fx ac jb cartft"><button class="qdel" onClick="{{ clearCart }}">선택 삭제</button><button class="bigbtn" style="flex:none" onClick="{{ goQuoteForm }}">총 {{ cartSelCount }}팀 아티스트로 견적 요청</button></div></sc-if><sc-if value="{{ noCart }}"><div class="empty">장바구니가 비어 있습니다.<br>아티스트 카드의 장바구니 버튼을 눌러 담아보세요.</div></sc-if></section></sc-if>
+<sc-if value="{{ isQuoteForm }}"><section data-screen-label="견적서 작성" class="mypg"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">{{ qfHeading }}</span></div><h1 class="lth">{{ qfHeading }}</h1><div class="qform"><sc-if value="{{ qfReadonlyEmail }}" hint-placeholder-val="{{ true }}"><div class="mfield"><label class="flab">이메일 (가입정보)</label><input value="{{ qfEmail }}" readOnly="{{ true }}" style="background:#eceae9;color:#888"></div></sc-if><sc-if value="{{ qfEditEmail }}"><div class="mfield"><label class="flab">이메일 <span class="req">*</span></label><input id="qf-email" value="{{ qfEmailIn }}" onChange="{{ onQfEmail }}" placeholder="회신 받을 이메일 주소"><sc-if value="{{ qfEmailErr }}"><p class="ferr">{{ qfEmailErr }}</p></sc-if></div></sc-if><div class="fx gap12"><div class="mfield f1"><label class="flab">이름 <span class="req">*</span></label><input id="qf-name" value="{{ qfName }}" onChange="{{ onQfName }}" placeholder="담당자 이름"><sc-if value="{{ qfNameErr }}"><p class="ferr">{{ qfNameErr }}</p></sc-if></div><div class="mfield f1"><label class="flab">전화번호 <span class="req">*</span></label><input id="qf-phone" value="{{ qfPhone }}" onChange="{{ onQfPhone }}" placeholder="010-0000-0000"><sc-if value="{{ qfPhoneErr }}"><p class="ferr">{{ qfPhoneErr }}</p></sc-if></div></div><div class="mfield"><label class="flab">행사명 <span class="req">*</span></label><input id="qf-title" value="{{ qfTitle }}" onChange="{{ onQfTitle }}" placeholder="예) 창립 20주년 기념행사 섭외 문의"><sc-if value="{{ qfTitleErr }}"><p class="ferr">{{ qfTitleErr }}</p></sc-if></div><div class="mfield"><label class="flab">행사일</label><div class="fx gap12"><input type="date" value="{{ qfDate }}" onChange="{{ onQfDate }}" style="flex:none;width:170px"><input value="{{ qfDateText }}" onChange="{{ onQfDateText }}" placeholder="직접 입력 — 예) 미정 또는 2026년 7월 중순" class="f1"></div></div><div class="mfield"><label class="flab">행사지역</label><select value="{{ qfRegion }}" onChange="{{ onQfRegion }}" class="qselect"><option value="">지역 선택</option><sc-for list="{{ regionOpts }}" as="r" hint-placeholder-count="3"><option value="{{ r }}">{{ r }}</option></sc-for></select></div><div class="mfield"><label class="flab">내용</label><textarea class="qta" value="{{ qfBody }}" onChange="{{ onQfBody }}" placeholder="행사 일시, 장소, 규모, 예산 범위 등을 알려주세요."></textarea></div><div class="mfield"><label class="flab">첨부파일</label><label class="qfile"><input type="file" multiple="" onChange="{{ onQfFile }}" style="display:none">파일 선택</label><sc-for list="{{ qfFileList }}" as="f" hint-placeholder-count="1"><div class="fx ac jb qfrow"><span class="fs13">{{ f.name }}</span><button class="qdel" onClick="{{ f.remove }}">삭제</button></div></sc-for></div><sc-if value="{{ hasSelArtists }}"><h2 class="qsub">선택한 아티스트 {{ selCount }}팀</h2><div class="fx gap8" style="flex-wrap:wrap"><sc-for list="{{ selArtists }}" as="a" hint-placeholder-count="2"><span class="fx ac gap8 qchip"><img src="{{ a.img }}" alt="{{ a.name }}">{{ a.name }}</span></sc-for></div></sc-if><sc-if value="{{ hasQfShow }}"><h2 class="qsub">첨부된 공연</h2><div class="qshowbx"><div class="fw7 fs14">{{ qfShowTitle }}</div><div class="fs13" style="color:#888;margin-top:4px">{{ qfShowDate }}</div><div class="fs13" style="margin-top:8px">출연진 자동 첨부 — {{ qfShowLineup }}</div></div></sc-if><sc-if value="{{ qfErr }}"><p class="aerr">{{ qfErr }}</p></sc-if><sc-if value="{{ qfShowUpdate }}"><label class="fx ac gap8 fs14 pointer" style="margin-top:24px"><input type="checkbox" class="ckb" checked="{{ qfUpdateProfile }}" onChange="{{ onQfUpdateProfile }}">회원정보의 이름, 전화번호를 입력한 정보로 업데이트 하기</label></sc-if><button class="bigbtn w100 bbox" style="margin-top:16px" onClick="{{ sendQuote }}">{{ qfBtnLabel }}</button></div></section></sc-if>
+<sc-if value="{{ isProfile }}"><section data-screen-label="회원정보 수정" class="mypg"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">회원정보 수정</span></div><div class="qform" style="margin-top:32px"><h2 class="sech2" style="font-size:18px;margin-bottom:16px">회원정보</h2><div class="mfield"><label class="flab">이메일 (가입정보)</label><input value="{{ pfEmail }}" readOnly="{{ true }}" style="background:#eceae9;color:#888"></div><div class="mfield"><label class="flab">이름</label><input value="{{ pfName }}" onChange="{{ onPfName }}" placeholder="이름"></div><div class="mfield"><label class="flab">휴대폰번호</label><input value="{{ pfPhone }}" onChange="{{ onPfPhone }}" placeholder="010-0000-0000"></div><sc-if value="{{ pfErr }}"><p class="aerr">{{ pfErr }}</p></sc-if><sc-if value="{{ pfOk }}"><p class="aok">{{ pfOk }}</p></sc-if><div class="fx mt16" style="justify-content:flex-end"><button class="bigbtn" style="flex:none" onClick="{{ pfSave }}">저장</button></div><h2 class="sech2" style="font-size:18px;margin:40px 0 16px;padding-top:32px;border-top:1px solid #ddd">비밀번호 변경</h2><div class="mfield"><label class="flab">비밀번호 변경</label><input type="password" value="{{ pfPw }}" onChange="{{ onPfPw }}" placeholder="새 비밀번호 (8자 이상)"></div><div class="mfield"><label class="flab">비밀번호 변경 확인</label><input type="password" value="{{ pfPw2 }}" onChange="{{ onPfPw2 }}" placeholder="새 비밀번호 확인"></div><sc-if value="{{ pfPwErr }}"><p class="aerr">{{ pfPwErr }}</p></sc-if><sc-if value="{{ pfPwOk }}"><p class="aok">{{ pfPwOk }}</p></sc-if><div class="fx mt16" style="justify-content:flex-end"><button class="bigbtn" style="flex:none" onClick="{{ pfPwSave }}">비밀번호 변경</button></div><h2 class="sech2" style="font-size:18px;margin:40px 0 16px;padding-top:32px;border-top:1px solid #ddd">회원탈퇴</h2><p class="fs14" style="color:#666;line-height:1.7;margin:0">기존 견적내역이 모두 삭제됩니다.<br>탈퇴 시 계정 정보, 찜리스트, 장바구니, 견적 내역이 즉시 삭제되며 복구할 수 없습니다.</p><div class="fx mt16" style="justify-content:flex-end"><button class="bigbtn ghost" style="flex:none;color:#888;border-color:#ccc" onClick="{{ pfWithdraw }}">회원탈퇴</button></div></div><sc-if value="{{ withdrawAsk }}"><div class="mbk"><div class="modal"><h2 class="fs20 fw7 m0">회원탈퇴</h2><p class="fs14 mt12" style="line-height:1.6">정말로 탈퇴하시겠습니까?</p><div class="fx ac jb mt16 gap10"><button class="bigbtn ghost" style="flex:1" onClick="{{ pfWithdrawCancel }}">아니오</button><button class="bigbtn" style="flex:1" onClick="{{ pfWithdrawConfirm }}">예, 탈퇴합니다</button></div></div></div></sc-if></section></sc-if>
+<sc-if value="{{ isWishlist }}"><section data-screen-label="찜리스트" class="mypg"><div class="fx ac crumb"><button onClick="{{ goHome }}">홈</button><span>›</span><span class="fw6" style="color:#000">찜리스트</span></div><h1 class="lth">찜리스트</h1><sc-if value="{{ hasWish }}" hint-placeholder-val="{{ true }}"><div class="fx ac qhead"><label class="fx ac gap8 qcolck pointer"><input type="checkbox" class="ckb" checked="{{ wishAllCk }}" onChange="{{ wishToggleAll }}">전체</label><span class="f1">아티스트</span><span class="qcol3"></span></div><sc-for list="{{ wishRows }}" as="r" hint-placeholder-count="2"><div class="fx ac qrow"><span class="qcolck"><input type="checkbox" class="ckb" checked="{{ r.ck }}" onChange="{{ r.toggleCk }}"></span><div class="fx ac gap12 f1 pointer" onClick="{{ r.open }}"><img class="qimg" src="{{ r.img }}" alt="{{ r.name }}"><span class="col gap4"><span class="fw6 fs14">{{ r.name }}</span><span class="fs13" style="color:#666">{{ r.cat }}</span></span></div><span class="qcol3"><button class="qdel {{ r.cartCls }}" onClick="{{ r.addCart }}">{{ r.cartLabel }}</button><button class="qdel" onClick="{{ r.remove }}">삭제</button></span></div></sc-for><div class="fx ac jb cartft"><button class="qdel" onClick="{{ clearWish }}">선택 삭제</button><sc-if value="{{ hasWishSel }}"><button class="bigbtn" style="flex:none" onClick="{{ addSelToCart }}">총 {{ wishSelCount }}팀 아티스트 장바구니 담기</button></sc-if></div></sc-if><sc-if value="{{ hasWishShows }}"><div class="fx ac qhead" style="margin-top:36px"><label class="fx ac gap8 qcolck pointer"><input type="checkbox" class="ckb" checked="{{ showWishAllCk }}" onChange="{{ showWishToggleAll }}">전체</label><span class="f1">공연</span><span class="qcol3"></span></div><sc-for list="{{ wishShowRows }}" as="r" hint-placeholder-count="1"><div class="fx ac qrow"><span class="qcolck"><input type="checkbox" class="ckb" checked="{{ r.ck }}" onChange="{{ r.toggleCk }}"></span><div class="fx ac gap12 f1 pointer" onClick="{{ r.open }}"><img class="qimg" src="{{ r.img }}" alt="{{ r.name }}"><span class="col gap4"><span class="fw6 fs14">{{ r.name }}</span><span class="fs13" style="color:#666">{{ r.cast }}</span></span></div><span class="qcol3"><button class="qdel" onClick="{{ r.inquiry }}">문의하기</button><button class="qdel" onClick="{{ r.remove }}">삭제</button></span></div></sc-for><div class="fx ac jb cartft"><button class="qdel" onClick="{{ clearShowWish }}">선택 삭제</button></div></sc-if><sc-if value="{{ noWish }}"><div class="empty">찜한 아티스트나 공연이 없습니다.<br>마음에 드는 아티스트와 공연의 하트를 눌러 찜해 보세요.</div></sc-if></section></sc-if>
+</main>
+<sc-if value="{{ showTop }}"><button class="topb" onClick="{{ goTop }}" title="맨 위로" style="width: 36px; height: 36px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"></path></svg></button></sc-if>
+<footer><div class="wrap ftr ftgrid"><div class="fx ac gap24 ftm"><span class="fw7" style="color:#000">brassonit</span><button class="ftrb" onClick="{{ goAbout }}">브라소닛 소개</button><button class="ftrb" onClick="{{ goPrivacy }}">개인정보취급방침</button><button class="ftrb" onClick="{{ goTerms }}">이용약관</button></div><span class="ftrc">© 2026 brassonit. All rights reserved.</span><div class="fx ac gap12 snsw"><a class="snsb" href="https://www.facebook.com" target="_blank" rel="noopener" title="페이스북"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"></path></svg></a><a class="snsb" href="https://www.instagram.com" target="_blank" rel="noopener" title="인스타그램"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="19" height="19" x="2.5" y="2.5" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><line x1="17.4" x2="17.41" y1="6.6" y2="6.6"></line></svg></a></div></div></footer>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#B57EDC&quot;,&quot;options&quot;:[&quot;#B57EDC&quot;,&quot;#EC3013&quot;,&quot;#2A6FDB&quot;,&quot;#1F8A5B&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;브랜드&quot;},&quot;startLoggedIn&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;상태&quot;}}">
+const SUBS = {
+  '대중가수': ['아이돌','발라드','트로트','힙합'],
+  '음악': ['재즈','클래식','뮤지컬','국악'],
+  '강연': ['셀럽','배우'],
+  '사회자': ['전문MC','아나운서'],
+  '퍼포먼스': ['마술','무용','댄스'],
+};
+const MENU_ORDER = ['대중가수','음악','강연','사회자','퍼포먼스'];
+let _id = 0;
+const VIDS = ['9bZkp7q19f0','kJQP7kiw5Fk','JGwWNGJdvx8','2Vv-BfVoq4g','fLexgOxsZu0','M7lc1UVf-VE','dQw4w9WgXcQ'];
+function A(name, cat, sub, members, desc, likes, views, nimg) {
+  _id++;
+  const images = [];
+  for (let i = 0; i < nimg; i++) images.push('https://picsum.photos/seed/br' + _id + '-' + i + '/700/700');
+  const portfolio = [
+    { tag: '주요활동', year: 2026, text: '브라소닛 썸머 스테이지 라인업 확정' },
+    { tag: '주요활동', year: 2025, text: '전국 투어 « ' + name + ' LIVE » 12개 도시 진행' },
+    { tag: '주요활동', year: 2023, text: '글로벌 팬미팅 아시아 4개국 개최' },
+    { tag: '앨범', year: 2025, text: '정규 앨범 발매 · 발매 첫 주 차트 상위권 진입' },
+    { tag: '앨범', year: 2023, text: '디지털 싱글 2종 발매' },
+    { tag: '수상내역', year: 2024, text: '대한민국 공연예술대상 ' + sub + ' 부문 수상' },
+    { tag: '수상내역', year: 2022, text: '올해의 신인상 수상' },
+    { tag: '경력사항', year: 2024, text: '기업 행사 · 페스티벌 누적 200회 이상 출연' },
+    { tag: '경력사항', year: 2021, text: '방송 3사 음악 · 예능 프로그램 다수 출연' },
+  ];
+  const nv = 4 + (_id % 4);
+  const videos = [];
+  for (let i = 0; i < nv; i++) videos.push({ src: 'https://www.youtube-nocookie.com/embed/' + VIDS[(_id + i) % VIDS.length], title: name + ' — LIVE CLIP 0' + (i + 1) });
+  return { id: _id, name, cat, sub, members, desc, likes, views, images, portfolio, videos };
+}
+const ARTISTS = [
+  A('루미너스','대중가수','아이돌','5인조','청량한 퍼포먼스와 라이브로 무대를 압도하는 5인조 걸그룹.',1842,12400,3),
+  A('블랙펄스','대중가수','아이돌','7인조','파워풀한 군무가 강점인 7인조 보이그룹. 대학축제 섭외 1순위.',2310,15800,2),
+  A('서도윤','대중가수','발라드','솔로','감성 발라드의 정석. 기업 행사와 시상식 무대에서 검증된 보컬.',980,8700,2),
+  A('한이레','대중가수','발라드','솔로','드라마 OST 다수 참여. 잔잔한 무대 연출에 최적화된 싱어송라이터.',760,6100,1),
+  A('금잔디','대중가수','트로트','솔로','전 세대를 아우르는 국민 트로트 가수. 지역 축제 흥행 보증수표.',1520,11200,3),
+  A('박현웅','대중가수','트로트','솔로','오디션 프로그램 우승 출신. 밴드 편성 라이브 무대 가능.',1130,9400,2),
+  A('제이록','대중가수','힙합','솔로','묵직한 플로우의 래퍼. 페스티벌·대학축제 앙코르 요청 1위.',1670,13500,2),
+  A('크루 네온','대중가수','힙합','3인조','힙합 크루 유닛. DJ 세트 포함 60분 구성 가능.',890,7200,1),
+  A('블루노트 트리오','음악','재즈','3인조','피아노·베이스·드럼 편성. 갈라 디너와 라운지 행사에 최적.',540,4300,2),
+  A('윤세라 퀄텟','음악','재즈','4인조','보컬 재즈 퀄텟. 스탠더드부터 보사노바까지 폭넓은 레퍼토리.',420,3600,1),
+  A('아르코 스트링즈','음악','클래식','4인조','현악 4중주. 웨딩·VIP 리셉션·개막식 식전 연주 전문.',610,5100,2),
+  A('피아니스트 정한음','음악','클래식','솔로','국제 콩쿠르 입상. 렉처 콘서트 형식의 무대 구성 가능.',480,4000,1),
+  A('뮤지컬 앙상블 무대','음악','뮤지컬','6인조','인기 뮤지컬 넘버 갈라 무대. 배우 6인 + MR/밴드 선택.',720,5900,2),
+  A('가온소리','음악','국악','5인조','국악 크로스오버 팀. 전통과 현대를 잇는 개막 공연 전문.',650,5400,3),
+  A('김도현','강연','셀럽','솔로','밀리언셀러 작가. 동기부여·리더십 주제 기업 강연 전문.',1210,10800,1),
+  A('이수빈','강연','셀럽','솔로','스타트업 창업가 출신 방송인. 청년 대상 토크콘서트 인기.',940,8200,2),
+  A('배우 차민호','강연','배우','솔로','연기 인생 30년. 인문학과 예술을 넘나드는 북토크형 강연.',830,7000,1),
+  A('배우 윤가을','강연','배우','솔로','드라마·연극 배우. 문화재단·도서관 초청 강연 다수.',700,5800,2),
+  A('MC 강한별','사회자','전문MC','솔로','시상식·기업 행사 1,000회 진행. 애드리브와 진행력의 교과서.',1380,11900,2),
+  A('MC 조유리','사회자','전문MC','솔로','축제·페스티벌 전문 MC. 현장 호응 유도에 강점.',1050,8900,1),
+  A('아나운서 서지훈','사회자','아나운서','솔로','공중파 출신 아나운서. 포럼·컨퍼런스 격식 있는 진행.',870,7400,1),
+  A('아나운서 한소망','사회자','아나운서','솔로','뉴스 앵커 출신. 국제 행사 한/영 동시 진행 가능.',790,6600,2),
+  A('매지션 K','퍼포먼스','마술','솔로','클로즈업부터 일루전까지. 무대 규모에 맞춘 맞춤 구성.',1140,9800,3),
+  A('듀오 미스티','퍼포먼스','마술','2인조','2인조 멘탈 매직 듀오. 관객 참여형 코너로 몰입도 최고.',680,5600,1),
+  A('발레단 흰새','퍼포먼스','무용','8인조','모던 발레 컴퍼니. 개막식·갈라 오프닝 무대 전문.',560,4700,2),
+  A('현대무용 그루브온','퍼포먼스','무용','6인조','미디어아트와 결합한 현대무용. 브랜드 런칭쇼 다수.',630,5200,2),
+  A('크루 스핀오프','퍼포먼스','댄스','7인조','세계대회 수상 비보잉 크루. 폭발적인 에너지의 15분 무대.',1490,12100,3),
+  A('걸스힙합 레디고','퍼포먼스','댄스','5인조','방송 안무팀 출신. 커버댄스부터 창작 안무까지 소화.',920,7800,2),
+];
+const POOL = {
+  '아이돌': [['세라핌즈','6인조'],['네온버스','4인조'],['미리내','5인조'],['청춘열차','7인조'],['도트팝','4인조']],
+  '발라드': [['최서연','솔로'],['강무진','솔로'],['이하람','솔로'],['정소울','솔로'],['문별하','솔로']],
+  '트로트': [['오복순','솔로'],['남진호','솔로'],['진달래','솔로'],['황금빛','솔로'],['송가람','솔로']],
+  '힙합': [['MC 그라운드','솔로'],['릴웨이브','솔로'],['빅톤즈','2인조'],['플로우캣','솔로'],['다이나선','2인조']],
+  '재즈': [['스윙브릿지','4인조'],['문라이트 밴드','5인조'],['재즈살롱','3인조'],['벨벳톤','4인조'],['미드나잇 콰르텟','4인조']],
+  '클래식': [['첼리스트 백서진','솔로'],['트리오 아모레','3인조'],['브라스 앙상블','5인조'],['소프라노 임채린','솔로'],['콰르텟 루체','4인조']],
+  '뮤지컬': [['갈라팀 커튼콜','5인조'],['배우 신재하','솔로'],['배우 오세라','솔로'],['앙상블 브로드','6인조'],['듀엣 온스테이지','2인조']],
+  '국악': [['풍류단','6인조'],['가야금 김소예','솔로'],['판소리 남도','2인조'],['퓨전국악 흥','4인조'],['타악그룹 울림','5인조']],
+  '셀럽': [['방송인 유세진','솔로'],['작가 한기록','솔로'],['셰프 백단','솔로'],['운동선수 김도약','솔로'],['크리에이터 잼','솔로']],
+  '배우': [['배우 임하늘','솔로'],['배우 도이안','솔로'],['배우 서담','솔로'],['배우 채운','솔로'],['배우 문시아','솔로']],
+  '전문MC': [['MC 박진행','솔로'],['MC 이무대','솔로'],['MC 홍레디','솔로'],['MC 김큐','솔로'],['MC 장문','솔로']],
+  '아나운서': [['아나운서 정새벽','솔로'],['아나운서 김한결','솔로'],['아나운서 이보람','솔로'],['아나운서 최단정','솔로'],['아나운서 백지성','솔로']],
+  '마술': [['일루전 제로','솔로'],['매직크루 환','3인조'],['미스터 트릭','솔로'],['카드마스터 조','솔로'],['그랜드일루전','4인조']],
+  '무용': [['무용단 결','7인조'],['컨템포 무브','5인조'],['한국무용 다솜','6인조'],['듀오 플로우','2인조'],['프로젝트 몸','4인조']],
+  '댄스': [['팝핀 스파크','솔로'],['크루 백스텝','6인조'],['왁킹 유니버스','4인조'],['스트릿콜렉티브','8인조'],['키즈크루 점프','5인조']],
+};
+const DT = [
+  (sub) => sub + ' 무대의 신흥 강자. 행사 규모와 콘셉트에 맞춘 맞춤 구성이 가능합니다.',
+  (sub) => '현장 호응을 이끌어내는 ' + sub + ' 아티스트. 축제·기업 행사 다수 출연.',
+  (sub) => '검증된 ' + sub + ' 라인업. 리허설부터 본 무대까지 안정적인 운영.',
+];
+MENU_ORDER.forEach((cat) => SUBS[cat].forEach((sub) => (POOL[sub] || []).forEach(([nm, mem], i) => {
+  const lk = 300 + ((_id * 137 + i * 53) % 1500);
+  ARTISTS.push(A(nm, cat, sub, mem, DT[i % 3](sub), lk, lk * 7 + 240, 1 + (_id % 3)));
+})));
+const PAST_SHOWS = [
+  { title: '윈터 캐럴 나이트', date: '2025. 12. 20 · 블루스퀘어', line: '서도윤과 블루노트 트리오가 함께한 연말 캐럴 스테이지', img: 'https://picsum.photos/seed/show-winter/900/560', cat: '음악', lineup: ['서도윤', '블루노트 트리오'], tickets: [] },
+  { title: '브라소닛 썸머 스테이지 2025', date: '2025. 08. 16 · 난지한강공원', line: '블랙펄스 × 한이레 — 한여름 밤의 개장 시즌 무대', img: 'https://picsum.photos/seed/show-summer25/900/560', cat: '대중가수', lineup: ['블랙펄스', '한이레'], tickets: [] },
+  { title: '캠퍼스 페스타 라이브', date: '2025. 05. 23 · 고려대학교', line: '루미너스와 함께한 대학 축제 연합 라이브', img: 'https://picsum.photos/seed/show-campus/900/560', cat: '대중가수', lineup: ['루미너스'], tickets: [] },
+  { title: '트로트 빅쇼', date: '2024. 11. 09 · 킨텍스', line: '금잔디 × 오복순 × 남진호 — 세대를 잇는 트로트 대축제', img: 'https://picsum.photos/seed/show-trot/900/560', cat: '대중가수', lineup: ['금잔디', '오복순', '남진호'], tickets: [] },
+  { title: '재즈 인 더 시티 2024', date: '2024. 09. 05 · 세종문화회관', line: '윤세라 퀄텟이 연 첫 번째 도시의 밤', img: 'https://picsum.photos/seed/show-jazz24/900/560', cat: '음악', lineup: ['윤세라 퀄텟'], tickets: [] },
+  { title: '토크콘서트 : 첫 페이지', date: '2024. 03. 30 · 코엑스', line: '김도현 — 시즌제 기획공연의 시작을 알린 첫 토크콘서트', img: 'https://picsum.photos/seed/show-talk24/900/560', cat: '강연', lineup: ['김도현'], tickets: [] },
+];
+const SHOWS = [
+  { title: '브라소닛 썸머 스테이지', date: '2026. 08. 15 · 올림픽공원', line: '루미너스 × 제이록 × 크루 스핀오프 — 여름밤을 가르는 3색 라인업', img: 'https://picsum.photos/seed/show-summer/900/560', cat: '대중가수', lineup: ['루미너스','제이록','크루 스핀오프'], tickets: [{ label: '1회차 08.15 (토) — 인터파크 티켓', url: 'https://tickets.interpark.com' }, { label: '2회차 08.16 (일) — 예스24 티켓', url: 'https://ticket.yes24.com' }] },
+  { title: '재즈 인 더 시티', date: '2026. 09. 03 · 세종문화회관', line: '블루노트 트리오와 윤세라 퀄텟이 그리는 도시의 밤', img: 'https://picsum.photos/seed/show-jazz/900/560', cat: '음악', lineup: ['블루노트 트리오','윤세라 퀄텟'], tickets: [{ label: '예매하기 — 인터파크 티켓', url: 'https://tickets.interpark.com' }] },
+  { title: '토크콘서트 : 다음 페이지', date: '2026. 09. 21 · 코엑스', line: '김도현 × 이수빈 — 일과 삶의 방향을 묻는 2시간', img: 'https://picsum.photos/seed/show-talk/900/560', cat: '강연', lineup: ['김도현','이수빈'], tickets: [{ label: '예매하기 — 멜론 티켓', url: 'https://ticket.melon.com' }] },
+];
+const ALLSHOWS = SHOWS.concat(PAST_SHOWS);
+ALLSHOWS.forEach((sh, i) => { sh.likes = 120 + ((i * 271 + 97) % 880); sh.views = (sh.likes * 7) + 300;
+  sh.intro = [
+    sh.line + '. 브라소닛이 기획 단계부터 무대 연출, 음향·조명 설계, 아티스트 섭외까지 전 과정을 총괄한 기획공연입니다.',
+    '이번 공연은 ' + sh.lineup.join(', ') + ' 등 검증된 라인업이 한 무대에 오르는 자리로, 각 팀의 대표 레퍼토리와 이번 공연만을 위해 준비한 특별 무대가 함께 구성됩니다. 관객과의 거리를 좁힌 무대 동선과 세트리스트 사이의 토크 세션을 통해 공연장 전체가 하나의 흐름으로 이어지도록 연출했습니다.',
+    '공연장 좌석은 전석 지정석으로 운영되며, 공연 시작 30분 전부터 입장이 가능합니다. 미취학 아동은 입장이 제한될 수 있으니 예매 전 상세 공지를 확인해 주세요. 주차 공간이 협소하므로 대중교통 이용을 권장합니다.',
+    '단체 관람 및 기업 초청 문의는 하단의 공연 문의하기를 통해 접수하실 수 있으며, 모든 문의는 24시간 이내에 회신드립니다.',
+  ];
+  const nv = 4 + (i % 4);
+  sh.videos = [];
+  for (let k = 0; k < nv; k++) sh.videos.push({ src: 'https://www.youtube-nocookie.com/embed/' + VIDS[(i + k) % VIDS.length], title: sh.title + ' — CLIP 0' + (k + 1) });
+});
+const DOC_VERS = ['2026.01.01', '2022.11.28', '2021.08.17', '2020.06.15', '2016.05.21'];
+class Component extends DCLogic {
+  state = { page: 'home', cat: null, sub: null, id: null, q: '', slide: 0, loginOpen: false, user: null, email: '', pw: '', pw2: '', authErr: '', authOk: '', signupDone: false, needVerify: false, verifiedNow: false, accounts: {}, liked: {}, carted: {}, viewed: {}, pfOpen: false, vidOpen: false, shared: false, pageNo: 1, mobileCount: 20, isMobile: false, showTop: false, userEmail: '', quotes: [], cartSel: {}, wishSel: {}, qfIds: [], qfName: '', qfPhone: '', qfTitle: '', qfBody: '', qfFiles: [], qfShow: '', qfErr: '', qSent: false };
+  componentDidMount() {
+    if (this.props.startLoggedIn && !this.state.user) this.setState({ user: '게스트' });
+    try {
+      const accounts = JSON.parse(localStorage.getItem('brassonit-accounts') || '{}');
+      let su = localStorage.getItem('brassonit-user');
+      let ue = localStorage.getItem('brassonit-user-email') || '';
+      if (su && su.charAt(0) === '{') { try { const o = JSON.parse(su); ue = ue || o.email || ''; su = o.name || (o.email ? o.email.split('@')[0] : ''); } catch (e2) {} }
+      const d = new Date(); const pad = (n) => (n < 10 ? '0' : '') + n;
+      const today = d.getFullYear() + '. ' + pad(d.getMonth() + 1) + '. ' + pad(d.getDate());
+      const quotes = JSON.parse(localStorage.getItem('brassonit-quotes') || '[]').map((q) => (q.date !== today ? Object.assign({}, q, { status: '회신완료', doc: true }) : q));
+      this.setState(su ? { accounts, user: su, userEmail: ue, quotes } : { accounts, quotes });
+    } catch (e) {}
+    this.applyAccent();
+    this.mq = window.matchMedia('(max-width:620px)');
+    this.onMq = () => this.setState({ isMobile: this.mq.matches });
+    this.mq.addEventListener('change', this.onMq);
+    if (this.mq.matches) this.setState({ isMobile: true });
+    this.onScroll = () => {
+      const s = this.state;
+      const st = window.scrollY > 300;
+      if (st !== s.showTop) this.setState({ showTop: st });
+      if (!s.isMobile || s.page !== 'list') return;
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 400 && s.mobileCount < (this._listTotal || 0)) this.setState({ mobileCount: s.mobileCount + 20 });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { this.mq.removeEventListener('change', this.onMq); window.removeEventListener('scroll', this.onScroll); }
+  componentDidUpdate() { this.applyAccent(); }
+  applyAccent() { const a = this.props.accent ?? '#B57EDC'; document.documentElement.style.setProperty('--color-accent', a); }
+  fmtPhone(v) {
+    const d = (v || '').replace(/\D/g, '').slice(0, 11);
+    if (d.length < 4) return d;
+    if (d.startsWith('02')) {
+      if (d.length < 6) return d.slice(0, 2) + '-' + d.slice(2);
+      if (d.length < 10) return d.slice(0, 2) + '-' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+      return d.slice(0, 2) + '-' + d.slice(2, 6) + '-' + d.slice(6, 10);
+    }
+    if (d.length < 8) return d.slice(0, 3) + '-' + d.slice(3);
+    if (d.length < 11) return d.slice(0, 3) + '-' + d.slice(3, d.length - 4) + '-' + d.slice(-4);
+    return d.slice(0, 3) + '-' + d.slice(3, 7) + '-' + d.slice(7);
+  }
+  verKo(v) { const p = v.split('.'); return parseInt(p[0], 10) + '년 ' + parseInt(p[1], 10) + '월 ' + parseInt(p[2], 10) + '일'; }
+  nav(patch) { this.setState(Object.assign({ slide: 0, pfOpen: false, vidOpen: false, introOpen: false, shared: false, pageNo: 1, mobileCount: 20, userMenuOpen: false, qSent: false }, patch)); window.scrollTo(0, 0); }
+  requireLogin() { if (this.state.user) return true; this.goAuth('login', { authErr: '로그인이 필요한 기능입니다.' }); return false; }
+  goAuth(page, extra) { this.nav(Object.assign({ page, authErr: '', authOk: '', pw: '', pw2: '', signupDone: false, needVerify: false, verifiedNow: false }, extra || {})); }
+  saveAccounts(accounts) { this.setState({ accounts }); try { localStorage.setItem('brassonit-accounts', JSON.stringify(accounts)); } catch (e) {} }
+  openDetail(a) {
+    const viewed = Object.assign({}, this.state.viewed); viewed[a.id] = (viewed[a.id] || 0) + 1;
+    this.setState({ viewed }); this.nav({ page: 'detail', id: a.id, cat: a.cat });
+  }
+  toggle(key, id) {
+    if (!this.requireLogin()) return;
+    const m = Object.assign({}, this.state[key]); m[id] = !m[id]; this.setState({ [key]: m });
+  }
+  fmt(n) { return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + '천' : '' + n; }
+  cardOf(a) {
+    const s = this.state;
+    return {
+      name: a.name, desc: a.desc, img: a.images[0],
+      likes: this.fmt(a.likes + (s.liked[a.id] ? 1 : 0)),
+      views: this.fmt(a.views + (s.viewed[a.id] || 0)),
+      likeCls: s.liked[a.id] ? 'on' : '', cartCls: s.carted[a.id] ? 'on' : '',
+      open: () => this.openDetail(a),
+      like: (e) => { e.stopPropagation(); this.toggle('liked', a.id); },
+      cart: (e) => { e.stopPropagation(); this.toggle('carted', a.id); },
+    };
+  }
+  renderVals() {
+    const s = this.state;
+    const menus = MENU_ORDER.map((cat) => ({
+      name: cat,
+      cls: s.page === 'list' && s.cat === cat ? 'on' : '',
+      hovCls: s.hoverCat === cat ? 'hov' : '',
+      hover: () => this.setState({ hoverCat: cat }),
+      open: () => this.nav({ page: 'list', cat, sub: null, q: '', hoverCat: null, megaLock: true }),
+      subs: SUBS[cat].map((sub) => ({ name: sub, open: () => this.nav({ page: 'list', cat, sub, q: '', hoverCat: null, megaLock: true }) })),
+    }));
+    let listTitle = '', cards = [], searchGroups = [];
+    if (s.page === 'list') { listTitle = s.sub ? s.cat + ' · ' + s.sub : s.cat; cards = ARTISTS.filter((a) => a.cat === s.cat && (!s.sub || a.sub === s.sub)); }
+    if (s.page === 'search') {
+      listTitle = "'" + s.sq + "' 검색 결과";
+      const q = (s.sq || '').trim();
+      const found = ARTISTS.filter((a) => q && (a.name.includes(q) || a.desc.includes(q) || a.cat.includes(q) || a.sub.includes(q)));
+      searchGroups = MENU_ORDER.map((cat) => {
+        const list = found.filter((a) => a.cat === cat);
+        return { cat, count: list.length, cards: list.map((a) => this.cardOf(a)) };
+      }).filter((g) => g.count);
+    }
+    const PAGE = 20;
+    const pageCount = Math.max(1, Math.ceil(cards.length / PAGE));
+    this._listTotal = cards.length;
+    const shown = s.isMobile ? cards.slice(0, s.mobileCount) : cards.slice((s.pageNo - 1) * PAGE, s.pageNo * PAGE);
+    const cur = s.page === 'detail' ? ARTISTS.find((a) => a.id === s.id) : null;
+    const n = cur ? cur.images.length : 1;
+    const vals = {
+      q: s.q, onQ: (e) => this.setState({ q: e.target.value }),
+      onQKey: (e) => { if (e.key === 'Enter' && s.q.trim()) this.nav({ page: 'search', sq: s.q }); },
+      isSearch: s.page === 'search',
+      searchGroups,
+      hasResults: searchGroups.length > 0,
+      noResults: s.page === 'search' && searchGroups.length === 0,
+      isAbout: s.page === 'about', isTerms: s.page === 'terms', isPrivacy: s.page === 'privacy',
+      termsVers: DOC_VERS.map((v) => ({ val: v })),
+      privacyVers: DOC_VERS.map((v) => ({ val: v })),
+      termsVer: s.termsVer || DOC_VERS[0],
+      privacyVer: s.privacyVer || DOC_VERS[0],
+      termsVerKo: this.verKo(s.termsVer || DOC_VERS[0]),
+      privacyVerKo: this.verKo(s.privacyVer || DOC_VERS[0]),
+      onTermsVer: (e) => { this.setState({ termsVer: e.target.value }); window.scrollTo(0, 0); },
+      onPrivacyVer: (e) => { this.setState({ privacyVer: e.target.value }); window.scrollTo(0, 0); },
+      goAbout: () => this.nav({ page: 'about' }),
+      goTerms: () => this.nav({ page: 'terms' }),
+      goPrivacy: () => this.nav({ page: 'privacy' }),
+      history: [
+        { y: '2026', t: '누적 섭외 3,000건 돌파 · 브라소닛 썸머 스테이지 개최' },
+        { y: '2024', t: '공연기획 사업부 신설 · 자체 기획공연 시즌제 시작' },
+        { y: '2023', t: '등록 아티스트 300팀 돌파 · 온라인 섭외 플랫폼 오픈' },
+        { y: '2021', t: '기업 행사 전문 섭외 서비스 개시' },
+        { y: '2019', t: '주식회사 브라소닛 법인 설립' },
+      ],
+      aboutShows: SHOWS,
+      crumbCat: s.sub ? s.cat : '',
+      crumbCatGo: () => this.nav({ page: 'list', cat: s.cat, sub: null }),
+      crumbSub: s.sub || '',
+      crumbPlain: !s.sub,
+      isShow: s.page === 'show',
+      menus, shows: SHOWS.map((sh, i) => Object.assign({}, sh, { likesF: this.fmt(sh.likes), viewsF: this.fmt(sh.views), open: () => this.nav({ page: 'show', showIdx: i }) })),
+      isShows: s.page === 'shows',
+      goShows: () => this.nav({ page: 'shows' }),
+      showsUpcoming: SHOWS.map((sh, i) => Object.assign({}, sh, { likesF: this.fmt(sh.likes), viewsF: this.fmt(sh.views), open: () => this.nav({ page: 'show', showIdx: i }) })),
+      showsPast: PAST_SHOWS.map((sh, i) => Object.assign({}, sh, { likesF: this.fmt(sh.likes), viewsF: this.fmt(sh.views), open: () => this.nav({ page: 'show', showIdx: SHOWS.length + i }) })),
+      isHome: s.page === 'home', isList: s.page === 'list', isDetail: s.page === 'detail',
+      goHome: () => this.nav({ page: 'home', q: '' }),
+      goSingers: () => this.nav({ page: 'list', cat: '대중가수', sub: null }),
+      listTitle, listCount: cards.length, hasCards: cards.length > 0, noCards: cards.length === 0 && s.page === 'list',
+      cards: shown.map((a) => this.cardOf(a)),
+      showPager: !s.isMobile && pageCount > 1,
+      pages: Array.from({ length: pageCount }, (_, i) => ({ n: i + 1, cls: i + 1 === s.pageNo ? 'on' : '', go: () => { this.setState({ pageNo: i + 1 }); window.scrollTo(0, 0); } })),
+      pgPrev: () => { this.setState({ pageNo: s.pageNo - 1 }); window.scrollTo(0, 0); },
+      pgNext: () => { this.setState({ pageNo: s.pageNo + 1 }); window.scrollTo(0, 0); },
+      pgPrevDis: s.pageNo <= 1, pgNextDis: s.pageNo >= pageCount,
+      mStat: Math.min(s.mobileCount, cards.length) + ' / ' + cards.length,
+      goTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      showTop: s.showTop,
+      loggedIn: !!s.user, loggedOut: !s.user, userName: s.user || '',
+      cartCount: Object.values(s.carted).filter(Boolean).length,
+      hasCart: Object.values(s.carted).filter(Boolean).length > 0,
+      userMenuOpen: !!s.userMenuOpen,
+      toggleUserMenu: () => this.setState({ userMenuOpen: !s.userMenuOpen }),
+      closeUserMenu: () => { if (s.userMenuOpen) this.setState({ userMenuOpen: false }); },
+      isQuotes: s.page === 'quotes', isWishlist: s.page === 'wishlist',
+      isCart: s.page === 'cart', isQuoteForm: s.page === 'quote',
+      goQuotes: () => this.nav({ page: 'quotes', megaLock: true }),
+      isProfile: s.page === 'profile',
+      goProfile: () => { const acc = s.accounts[s.userEmail] || {}; this.nav({ page: 'profile', megaLock: true, pfName: acc.name || '', pfPhone: acc.phone || '', pfPw: '', pfPw2: '', pfErr: '', pfOk: '' }); },
+      pfEmail: s.userEmail,
+      pfName: s.pfName || '', onPfName: (e) => this.setState({ pfName: e.target.value }),
+      pfPhone: s.pfPhone || '', onPfPhone: (e) => this.setState({ pfPhone: this.fmtPhone(e.target.value) }),
+      pfPw: s.pfPw || '', onPfPw: (e) => this.setState({ pfPw: e.target.value }),
+      pfPw2: s.pfPw2 || '', onPfPw2: (e) => this.setState({ pfPw2: e.target.value }),
+      pfErr: s.pfErr || '', pfOk: s.pfOk || '',
+      pfSave: () => {
+        const accounts = Object.assign({}, s.accounts);
+        const acc = Object.assign({}, accounts[s.userEmail] || {});
+        acc.name = (s.pfName || '').trim(); acc.phone = (s.pfPhone || '').trim();
+        accounts[s.userEmail] = acc; this.saveAccounts(accounts);
+        const newName = acc.name || (s.userEmail || '').split('@')[0];
+        try { localStorage.setItem('brassonit-user', newName); } catch (e) {}
+        this.setState({ accounts, user: newName, pfErr: '', pfOk: '저장되었습니다.', pfPwErr: '', pfPwOk: '' });
+      },
+      pfPwSave: () => {
+        if ((s.pfPw || '').length < 8) return this.setState({ pfPwErr: '비밀번호는 8자 이상이어야 합니다.', pfPwOk: '' });
+        if (s.pfPw !== s.pfPw2) return this.setState({ pfPwErr: '비밀번호가 일치하지 않습니다.', pfPwOk: '' });
+        const accounts = Object.assign({}, s.accounts);
+        const acc = Object.assign({}, accounts[s.userEmail] || {});
+        acc.pw = s.pfPw; accounts[s.userEmail] = acc; this.saveAccounts(accounts);
+        this.setState({ accounts, pfPw: '', pfPw2: '', pfPwErr: '', pfPwOk: '비밀번호가 변경되었습니다.', pfErr: '', pfOk: '' });
+      },
+      pfPwErr: s.pfPwErr || '', pfPwOk: s.pfPwOk || '',
+      pfWithdraw: () => this.setState({ withdrawAsk: true }),
+      withdrawAsk: !!s.withdrawAsk,
+      pfWithdrawCancel: () => this.setState({ withdrawAsk: false }),
+      pfWithdrawConfirm: () => {
+        const accounts = Object.assign({}, s.accounts); delete accounts[s.userEmail]; this.saveAccounts(accounts);
+        try { localStorage.removeItem('brassonit-user'); localStorage.removeItem('brassonit-user-email'); } catch (e) {}
+        this.nav({ page: 'home', accounts, user: null, userEmail: '', liked: {}, carted: {}, withdrawAsk: false, megaLock: true });
+      },
+      goWishlist: () => this.nav({ page: 'wishlist', megaLock: true, wishSel: {}, showWishSel: {} }),
+      clearCart: () => { const carted = Object.assign({}, s.carted); const sel = Object.assign({}, s.cartSel); ARTISTS.forEach((a) => { if (s.cartSel[a.id]) { delete carted[a.id]; delete sel[a.id]; } }); this.setState({ carted, cartSel: sel }); },
+      clearWish: () => { const liked = Object.assign({}, s.liked); const sel = Object.assign({}, s.wishSel); ARTISTS.forEach((a) => { if (s.wishSel[a.id]) { delete liked[a.id]; delete sel[a.id]; } }); this.setState({ liked, wishSel: sel }); },
+      wishRows: ARTISTS.filter((a) => s.liked[a.id]).map((a) => ({
+        name: a.name, img: a.images[0], cat: a.cat + ' · ' + a.sub,
+        ck: !!s.wishSel[a.id],
+        toggleCk: () => { const m = Object.assign({}, s.wishSel); m[a.id] = !m[a.id]; this.setState({ wishSel: m }); },
+        open: () => this.openDetail(a),
+        cartCls: s.carted[a.id] ? 'on' : '',
+        cartLabel: s.carted[a.id] ? '담김' : '장바구니',
+        addCart: () => this.toggle('carted', a.id),
+        remove: () => { const m = Object.assign({}, s.liked); delete m[a.id]; const w = Object.assign({}, s.wishSel); delete w[a.id]; this.setState({ liked: m, wishSel: w }); },
+      })),
+      wishSelCount: ARTISTS.filter((a) => s.liked[a.id] && s.wishSel[a.id]).length,
+      hasWishSel: ARTISTS.filter((a) => s.liked[a.id] && s.wishSel[a.id]).length > 0,
+      wishAllCk: ARTISTS.filter((a) => s.liked[a.id]).every((a) => s.wishSel[a.id]) && Object.values(s.liked).filter(Boolean).length > 0,
+      wishToggleAll: () => { const all = ARTISTS.filter((a) => s.liked[a.id]); const on = !all.every((a) => s.wishSel[a.id]); const m = {}; all.forEach((a) => { m[a.id] = on; }); this.setState({ wishSel: m }); },
+      addSelToCart: () => { const carted = Object.assign({}, s.carted); ARTISTS.forEach((a) => { if (s.liked[a.id] && s.wishSel[a.id]) carted[a.id] = true; }); this.setState({ carted, wishSel: {} }); },
+      megaLockCls: s.megaLock ? 'mega-lock' : '',
+      goCart: () => { if (!this.requireLogin()) return; const sel = {}; ARTISTS.forEach((a) => { if (s.carted[a.id]) sel[a.id] = true; }); this.nav({ page: 'cart', cartSel: sel }); },
+      cartRows: ARTISTS.filter((a) => s.carted[a.id]).map((a) => ({
+        name: a.name, img: a.images[0], cat: a.cat + ' · ' + a.sub,
+        ck: !!s.cartSel[a.id],
+        toggleCk: () => { const m = Object.assign({}, s.cartSel); m[a.id] = !m[a.id]; this.setState({ cartSel: m }); },
+        open: () => this.openDetail(a),
+        remove: () => this.toggle('carted', a.id),
+      })),
+      cartSelCount: ARTISTS.filter((a) => s.carted[a.id] && s.cartSel[a.id]).length,
+      allCk: ARTISTS.filter((a) => s.carted[a.id]).every((a) => s.cartSel[a.id]) && Object.values(s.carted).filter(Boolean).length > 0,
+      toggleAll: () => { const all = ARTISTS.filter((a) => s.carted[a.id]); const on = !all.every((a) => s.cartSel[a.id]); const m = {}; all.forEach((a) => { m[a.id] = on; }); this.setState({ cartSel: m }); },
+      noCart: s.page === 'cart' && Object.values(s.carted).filter(Boolean).length === 0,
+      goQuoteForm: () => { const ids = ARTISTS.filter((a) => s.carted[a.id] && s.cartSel[a.id]).map((a) => a.id); if (!ids.length) { this.setState({ qfErr: '' }); return; } this.nav({ page: 'quote', qfInquiry: false, qfIds: ids, qfErr: '', qfTitle: '', qfBody: '', qfFiles: [], qfShow: '' }); },
+      qfEmail: s.userEmail || s.email || '',
+      qfLoggedIn: !!s.userEmail,
+      qfHeading: s.qfShow !== '' && s.qfShow != null ? '공연 견적 요청' : (s.qfInquiry ? '섭외 견적 문의' : '섭외 견적 요청'),
+      qfBtnLabel: s.qfInquiry ? '견적 문의하기' : '견적 요청하기',
+      qfFromCart: !s.qfInquiry,
+      qfReadonlyEmail: !!s.userEmail,
+      qfEditEmail: !s.userEmail,
+      qfShowUpdate: !!s.userEmail,
+      qfEmailIn: s.qfEmailIn || '',
+      onQfEmail: (e) => this.setState({ qfEmailIn: e.target.value, qfErrs: Object.assign({}, s.qfErrs, { email: '' }) }),
+      qfEmailErr: (s.qfErrs || {}).email || '',
+      goQuoteFormDirect: () => this.nav({ page: 'quote', qfInquiry: !s.userEmail, qfIds: [], qfErrs: {}, qfErr: '', qfTitle: '', qfBody: '', qfFiles: [], qfShow: '', qfEmailIn: '' }),
+      qfName: s.qfName, onQfName: (e) => this.setState({ qfName: e.target.value, qfErrs: Object.assign({}, s.qfErrs, { name: '' }) }),
+      qfPhone: s.qfPhone, onQfPhone: (e) => this.setState({ qfPhone: this.fmtPhone(e.target.value), qfErrs: Object.assign({}, s.qfErrs, { phone: '' }) }),
+      qfTitle: s.qfTitle, onQfTitle: (e) => this.setState({ qfTitle: e.target.value, qfErrs: Object.assign({}, s.qfErrs, { title: '' }) }),
+      qfNameErr: (s.qfErrs || {}).name || '',
+      qfPhoneErr: (s.qfErrs || {}).phone || '',
+      qfTitleErr: (s.qfErrs || {}).title || '',
+      qfDate: s.qfDate || '', onQfDate: (e) => this.setState({ qfDate: e.target.value, qfDateText: '' }),
+      qfDateText: s.qfDateText || '', onQfDateText: (e) => this.setState({ qfDateText: e.target.value, qfDate: '' }),
+      qfRegion: s.qfRegion || '', onQfRegion: (e) => this.setState({ qfRegion: e.target.value }),
+      regionOpts: ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원특별자치도', '충청북도', '충청남도', '전북특별자치도', '전라남도', '경상북도', '경상남도', '제주특별자치도'],
+      qfBody: s.qfBody, onQfBody: (e) => this.setState({ qfBody: e.target.value }),
+      onQfFile: (e) => { const names = Array.from(e.target.files || []).map((f) => f.name); if (names.length) this.setState({ qfFiles: s.qfFiles.concat(names) }); e.target.value = ''; },
+      qfFileList: s.qfFiles.map((name, i) => ({ name, remove: () => this.setState({ qfFiles: s.qfFiles.filter((_, j) => j !== i) }) })),
+      qfShow: s.qfShow, onQfShow: (e) => this.setState({ qfShow: e.target.value }),
+      showOpts: ALLSHOWS.map((sh, i) => ({ v: '' + i, label: sh.title + ' — ' + sh.date })),
+      hasQfShow: s.qfShow !== '',
+      qfShowTitle: s.qfShow !== '' ? ALLSHOWS[+s.qfShow].title : '',
+      qfShowDate: s.qfShow !== '' ? ALLSHOWS[+s.qfShow].date : '',
+      qfShowLineup: s.qfShow !== '' ? ALLSHOWS[+s.qfShow].lineup.join(', ') : '',
+      selArtists: s.qfIds.map((id) => ARTISTS.find((a) => a.id === id)).filter(Boolean).map((a) => ({ name: a.name, img: a.images[0] })),
+      selCount: s.qfIds.length,
+      hasSelArtists: s.qfIds.length > 0,
+      qfErr: s.qfErr,
+      qfUpdateProfile: s.qfUpdateProfile !== false,
+      onQfUpdateProfile: (e) => this.setState({ qfUpdateProfile: e.target.checked }),
+      backToCart: () => this.nav({ page: 'cart' }),
+      sendQuote: () => {
+        const errs = {};
+        if (!s.userEmail && !(s.qfEmailIn || '').trim()) errs.email = '이메일을 입력해 주세요.';
+        if (!s.qfName.trim()) errs.name = '이름을 입력해 주세요.';
+        if (!s.qfPhone.trim()) errs.phone = '전화번호를 입력해 주세요.';
+        if (!s.qfTitle.trim()) errs.title = '행사명을 입력해 주세요.';
+        if (errs.email || errs.name || errs.phone || errs.title) {
+          this.setState({ qfErrs: errs });
+          const id = errs.email ? 'qf-email' : errs.name ? 'qf-name' : errs.phone ? 'qf-phone' : 'qf-title';
+          setTimeout(() => {
+            const el = document.getElementById(id); if (!el) return;
+            const y = el.getBoundingClientRect().top + window.scrollY - 140;
+            window.scrollTo({ top: y < 0 ? 0 : y, behavior: 'smooth' });
+            try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
+          }, 60);
+          return;
+        }
+        const d = new Date();
+        const pad = (n) => (n < 10 ? '0' : '') + n;
+        const sh = s.qfShow !== '' ? ALLSHOWS[+s.qfShow] : null;
+        const artists = s.qfIds.map((id) => (ARTISTS.find((a) => a.id === id) || {}).name).filter(Boolean);
+        const quote = { date: d.getFullYear() + '. ' + pad(d.getMonth() + 1) + '. ' + pad(d.getDate()), status: '접수완료', title: s.qfTitle.trim(), artists, show: sh ? sh.title : '' };
+        const quotes = [quote].concat(s.quotes);
+        try { localStorage.setItem('brassonit-quotes', JSON.stringify(quotes)); } catch (e) {}
+        const carted = Object.assign({}, s.carted); s.qfIds.forEach((id) => { delete carted[id]; });
+        const patch = { page: 'quotes', quotes, carted, qSent: true, qfIds: [], cartSel: {} };
+        if (s.qfUpdateProfile !== false && s.userEmail) {
+          const accounts = Object.assign({}, s.accounts);
+          accounts[s.userEmail] = Object.assign({}, accounts[s.userEmail] || {}, { name: s.qfName.trim(), phone: s.qfPhone.trim() });
+          this.saveAccounts(accounts);
+          const newName = s.qfName.trim() || s.userEmail.split('@')[0];
+          try { localStorage.setItem('brassonit-user', newName); } catch (e) {}
+          patch.accounts = accounts; patch.user = newName;
+        }
+        this.nav(patch);
+      },
+      qSent: !!s.qSent,
+      quoteList: s.quotes.slice((s.pageNo - 1) * 10, s.pageNo * 10).map((q) => ({
+        date: q.date, status: q.status, title: q.title,
+        meta: [q.artists.length ? '아티스트 ' + q.artists.length + '팀' : '', q.show ? '공연 첨부 : ' + q.show : ''].filter(Boolean).join(' · '),
+        hasDoc: !!q.doc, noDoc: !q.doc,
+        download: () => {
+          const html = '<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>견적서 - ' + q.title + '</title></head><body style="font-family:sans-serif;max-width:640px;margin:40px auto;line-height:1.7"><h1 style="border-bottom:2px solid #000;padding-bottom:12px">견 적 서</h1><p><b>제목</b> : ' + q.title + '<br><b>요청일</b> : ' + q.date + '<br><b>상태</b> : ' + q.status + '</p><p><b>아티스트</b> : ' + q.artists.join(', ') + (q.show ? '<br><b>공연</b> : ' + q.show : '') + '</p><p style="color:#888">세부 출연 조건 및 금액은 담당자 회신 메일을 참조해 주세요.<br>BRASSONIT — 연예인 섭외대행 · 공연기획</p></body></html>';
+          const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+          const a = document.createElement('a'); a.href = url; a.download = '견적서_' + q.title + '.html'; a.click();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        },
+      })),
+      wishCards: ARTISTS.filter((a) => s.liked[a.id]).map((a) => this.cardOf(a)),
+      hasQuotes: s.quotes.length > 0,
+      qShowPager: s.quotes.length > 10,
+      qPages: Array.from({ length: Math.ceil(s.quotes.length / 10) }, (_, i) => ({ n: i + 1, cls: s.pageNo === i + 1 ? 'on' : '', go: () => { this.setState({ pageNo: i + 1 }); window.scrollTo(0, 0); } })),
+      qPgPrev: () => { if (s.pageNo > 1) { this.setState({ pageNo: s.pageNo - 1 }); window.scrollTo(0, 0); } },
+      qPgNext: () => { if (s.pageNo < Math.ceil(s.quotes.length / 10)) { this.setState({ pageNo: s.pageNo + 1 }); window.scrollTo(0, 0); } },
+      qPgPrevDis: s.pageNo <= 1,
+      qPgNextDis: s.pageNo >= Math.ceil(s.quotes.length / 10),
+      noQuotes: s.page === 'quotes' && s.quotes.length === 0,
+      hasWish: Object.values(s.liked).filter(Boolean).length > 0,
+      hasWishShows: Object.values(s.showLiked || {}).filter(Boolean).length > 0,
+      wishShowRows: ALLSHOWS.map((sh, i) => ({ sh, i })).filter((x) => (s.showLiked || {})[x.i]).map((x) => ({
+        name: x.sh.title, img: x.sh.img, cat: x.sh.cat, cast: x.sh.lineup.join(', '),
+        ck: !!(s.showWishSel || {})[x.i],
+        toggleCk: () => { const m = Object.assign({}, s.showWishSel); m[x.i] = !m[x.i]; this.setState({ showWishSel: m }); },
+        open: () => this.nav({ page: 'show', showIdx: x.i }),
+        inquiry: () => { if (!this.requireLogin()) return; this.nav({ page: 'quote', qfInquiry: false, qfIds: [], qfShow: '' + x.i, qfErr: '', qfTitle: '', qfBody: '', qfFiles: [] }); },
+        remove: () => { const m = Object.assign({}, s.showLiked); delete m[x.i]; this.setState({ showLiked: m }); },
+      })),
+      noWish: s.page === 'wishlist' && Object.values(s.liked).filter(Boolean).length === 0 && Object.values(s.showLiked || {}).filter(Boolean).length === 0,
+      showWishAllCk: (() => { const ids = Object.keys(s.showLiked || {}).filter((k) => s.showLiked[k]); return ids.length > 0 && ids.every((k) => (s.showWishSel || {})[k]); })(),
+      showWishToggleAll: () => { const ids = Object.keys(s.showLiked || {}).filter((k) => s.showLiked[k]); const on = !ids.every((k) => (s.showWishSel || {})[k]); const m = {}; ids.forEach((k) => { m[k] = on; }); this.setState({ showWishSel: m }); },
+      clearShowWish: () => { const liked = Object.assign({}, s.showLiked); const sel = Object.assign({}, s.showWishSel); Object.keys(sel).forEach((k) => { if (sel[k]) { delete liked[k]; delete sel[k]; } }); this.setState({ showLiked: liked, showWishSel: sel }); },
+      isLogin: s.page === 'login', isSignup: s.page === 'signup',
+      openLogin: () => this.goAuth('login'),
+      goLogin: () => this.goAuth('login'),
+      goSignup: () => this.goAuth('signup'),
+      pw: s.pw || '', pw2: s.pw2 || '',
+      onPw: (e) => this.setState({ pw: e.target.value }),
+      onPw2: (e) => this.setState({ pw2: e.target.value }),
+      authErr: s.authErr, authOk: s.authOk,
+      signupDone: s.signupDone, notSignupDone: !s.signupDone,
+      needVerify: s.needVerify, verifiedNow: s.verifiedNow,
+      doSignup: () => {
+        const email = s.email.trim();
+        if (!/\S+@\S+\.\S+/.test(email)) return this.setState({ authErr: '올바른 이메일 주소를 입력해 주세요.' });
+        if (s.pw.length < 8) return this.setState({ authErr: '비밀번호는 8자 이상이어야 합니다.' });
+        if (s.pw !== s.pw2) return this.setState({ authErr: '비밀번호가 일치하지 않습니다.' });
+        if (s.accounts[email]) return this.setState({ authErr: '이미 가입된 이메일입니다.' });
+        const accounts = Object.assign({}, s.accounts); accounts[email] = { pw: s.pw, verified: false };
+        this.saveAccounts(accounts);
+        this.setState({ signupDone: true, needVerify: true, authErr: '', authOk: '인증 메일을 ' + email + ' 주소로 보냈습니다. 메일의 링크를 눌러 인증을 완료해 주세요.' });
+      },
+      doVerify: () => {
+        const email = s.email.trim();
+        const accounts = Object.assign({}, s.accounts);
+        if (accounts[email]) accounts[email] = Object.assign({}, accounts[email], { verified: true });
+        this.saveAccounts(accounts);
+        this.setState({ needVerify: false, verifiedNow: true, authErr: '', authOk: '이메일 인증이 완료되었습니다. 이제 로그인할 수 있습니다.' });
+      },
+      doLogin: () => {
+        const email = s.email.trim();
+        const acc = s.accounts[email];
+        if (!email || !s.pw) return this.setState({ authErr: '이메일과 비밀번호를 입력해 주세요.', authOk: '' });
+        if (!acc) return this.setState({ authErr: '등록되지 않은 이메일입니다. 회원가입을 진행해 주세요.', authOk: '' });
+        if (acc.pw !== s.pw) return this.setState({ authErr: '비밀번호가 올바르지 않습니다.', authOk: '' });
+        if (!acc.verified) return this.setState({ authErr: '이메일 인증 후 로그인할 수 있습니다.', needVerify: true, authOk: '' });
+        const name = acc.name || email.split('@')[0];
+        try { localStorage.setItem('brassonit-user', name); localStorage.setItem('brassonit-user-email', email); } catch (e) {}
+        this.setState({ user: name, userEmail: email, pw: '' }); this.nav({ page: 'home' });
+      },
+      clearHover: () => this.setState({ hoverCat: null, megaLock: false }),
+      showSubBar: s.isMobile && s.page === 'list' && !!SUBS[s.cat],
+      subBar: (SUBS[s.cat] ? [null].concat(SUBS[s.cat]) : []).map((sub) => ({
+        name: sub || '전체',
+        cls: (s.sub || null) === sub ? 'on' : '',
+        open: () => this.nav({ page: 'list', cat: s.cat, sub }),
+      })),
+      email: s.email, onEmail: (e) => this.setState({ email: e.target.value }),
+      logout: () => { try { localStorage.removeItem('brassonit-user'); } catch (e) {} this.nav({ page: 'home', user: null, liked: {}, carted: {}, megaLock: true }); },
+    };
+    if (s.page === 'show') {
+      const sh = ALLSHOWS[s.showIdx || 0];
+      Object.assign(vals, {
+        shTitle: sh.title, shDate: sh.date, shLine: sh.line, shImg: sh.img, shCat: sh.cat,
+        shLikes: this.fmt(sh.likes + (this.state.showLiked?.[s.showIdx || 0] ? 1 : 0)), shViews: this.fmt(sh.views),
+        shLikeColor: this.state.showLiked?.[s.showIdx || 0] ? 'var(--color-accent)' : '#bbb',
+        shShare: () => {
+          const url = location.href.split('#')[0] + '#show-' + (s.showIdx || 0);
+          const done = () => { this.setState({ shared: true }); setTimeout(() => this.setState({ shared: false }), 2000); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done); else done();
+        },
+        shShareLabel: s.shared ? '링크 복사됨 ✓' : '공유하기',
+        shIntro: sh.intro,
+        shIntroCls: s.introOpen ? '' : 'clamp',
+        shIntroToggle: () => this.setState({ introOpen: !s.introOpen }),
+        shIntroMoreLabel: s.introOpen ? '접기 ↑' : '더보기 ↓',
+        shVids: s.vidOpen ? sh.videos : sh.videos.slice(0, 5),
+        shVidHasMore: sh.videos.length > 5,
+        shVidToggle: () => this.setState({ vidOpen: !s.vidOpen }),
+        shVidMoreLabel: s.vidOpen ? '접기 ↑' : '더보기 (' + (sh.videos.length - 5) + ') ↓',
+        toggleShowLike: () => this.setState((p) => ({ showLiked: { ...(p.showLiked || {}), [p.showIdx || 0]: !(p.showLiked || {})[p.showIdx || 0] } })),
+        shLineup: sh.lineup.map((nm) => { const a = ARTISTS.find((x) => x.name === nm); return { name: nm, open: () => a && this.openDetail(a) }; }),
+        goShowCat: () => this.nav({ page: 'list', cat: sh.cat, sub: null }),
+        shInquiry: () => { if (!this.requireLogin()) return; this.nav({ page: 'quote', qfInquiry: false, qfIds: [], qfShow: '' + (s.showIdx || 0), qfErr: '', qfTitle: '', qfBody: '', qfFiles: [] }); },
+        shTickets: (sh.tickets || []).map((t) => ({ label: t.label, go: () => window.open(t.url, '_blank') })),
+      });
+    }
+    if (cur) {
+      Object.assign(vals, {
+        dName: cur.name, dCat: cur.cat, dSub: cur.cat + ' · ' + cur.sub, dGenre: cur.sub, dMembers: cur.members, dDesc: cur.desc,
+        dLikes: this.fmt(cur.likes + (s.liked[cur.id] ? 1 : 0)), dViews: this.fmt(cur.views + (s.viewed[cur.id] || 0)),
+        dImg: cur.images[s.slide % n], dMulti: n > 1,
+        dDots: cur.images.map((_, i) => ({ cls: i === s.slide % n ? 'on' : '', go: () => this.setState({ slide: i }) })),
+        slidePrev: () => this.setState({ slide: (s.slide + n - 1) % n }),
+        slideNext: () => this.setState({ slide: (s.slide + 1) % n }),
+        goDetailCat: () => this.nav({ page: 'list', cat: cur.cat, sub: null }),
+        dSubName: cur.sub,
+        goDetailSub: () => this.nav({ page: 'list', cat: cur.cat, sub: cur.sub }),
+        dCartClick: () => this.toggle('carted', cur.id),
+        dInquiry: () => { if (!this.requireLogin()) return; this.nav({ page: 'quote', qfInquiry: false, qfIds: [cur.id], qfShow: '', qfErr: '', qfTitle: '', qfBody: '', qfFiles: [] }); },
+        dLikeClick: () => this.toggle('liked', cur.id),
+        dCartLabel: s.carted[cur.id] ? '장바구니에 담김 ✓' : '장바구니 담기',
+        dLikeColor: s.liked[cur.id] ? 'var(--color-accent)' : '#bbb',
+        dShare: () => {
+          const url = location.href.split('#')[0] + '#artist-' + cur.id;
+          const done = () => { this.setState({ shared: true }); setTimeout(() => this.setState({ shared: false }), 2000); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done); else done();
+        },
+        dShareLabel: s.shared ? '링크 복사됨 ✓' : '공유하기',
+        pfGroups: (() => {
+          const order = ['주요활동', '앨범', '수상내역', '경력사항'];
+          const flat = [];
+          order.forEach((t) => cur.portfolio.filter((p) => p.tag === t).sort((a, b) => b.year - a.year).forEach((p) => flat.push(p)));
+          const capped = s.pfOpen ? flat : flat.slice(0, 5);
+          return order.map((t) => ({ tag: t, items: capped.filter((p) => p.tag === t) })).filter((g) => g.items.length);
+        })(),
+        pfHasMore: cur.portfolio.length > 5,
+        pfToggle: () => this.setState({ pfOpen: !s.pfOpen }),
+        pfMoreLabel: s.pfOpen ? '접기 ↑' : '더보기 (' + (cur.portfolio.length - 5) + ') ↓',
+        vids: s.vidOpen ? cur.videos : cur.videos.slice(0, 5),
+        vidCount: cur.videos.length,
+        vidHasMore: cur.videos.length > 5,
+        vidToggle: () => this.setState({ vidOpen: !s.vidOpen }),
+        vidMoreLabel: s.vidOpen ? '접기 ↑' : '더보기 (' + (cur.videos.length - 5) + ') ↓',
+      });
+    }
+    return vals;
+  }
+}
+
+</script>
+</body>
+</html>

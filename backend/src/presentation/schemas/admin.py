@@ -9,22 +9,22 @@ class ArtistStats(BaseModel):
     inactive: int
 
 
-class PerformanceStats(BaseModel):
+class ShowStats(BaseModel):
     total: int
-    featured: int
+    upcoming: int
+    past: int
 
 
-class InquiryStats(BaseModel):
+class QuoteStats(BaseModel):
     total: int
-    pending: int
+    received: int
     replied: int
-    closed: int
 
 
 class DashboardResponse(BaseModel):
     artists: ArtistStats
-    performances: PerformanceStats
-    inquiries: InquiryStats
+    shows: ShowStats
+    quotes: QuoteStats
 
 
 class ImageUploadResponse(BaseModel):

@@ -1,22 +1,29 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AuthProvider } from './infrastructure/auth/AuthContext'
-import MainLayout from './presentation/layouts/MainLayout'
 import AdminLayout from './presentation/layouts/AdminLayout'
-import HomePage from './presentation/pages/home/HomePage'
-import PerformanceListPage from './presentation/pages/performances/PerformanceListPage'
-import PerformanceDetailPage from './presentation/pages/performances/PerformanceDetailPage'
-import BookingCategoryPage from './presentation/pages/booking/BookingCategoryPage'
-import ArtistDetailPage from './presentation/pages/booking/ArtistDetailPage'
-import InquiryPage from './presentation/pages/inquiry/InquiryPage'
-import LoginPage from './presentation/pages/auth/LoginPage'
-import RegisterPage from './presentation/pages/auth/RegisterPage'
-import VerifyEmailPage from './presentation/pages/auth/VerifyEmailPage'
 import AdminDashboard from './presentation/pages/admin/AdminDashboard'
 import AdminArtists from './presentation/pages/admin/AdminArtists'
 import AdminArtistForm from './presentation/pages/admin/AdminArtistForm'
 import AdminPerformances from './presentation/pages/admin/AdminPerformances'
 import AdminInquiries from './presentation/pages/admin/AdminInquiries'
+// 브라소닛 신규 디자인 (design_handoff_brassonit)
+import { BrassProvider } from './brassonit/store'
+import BrassLayout from './brassonit/Layout'
+import HomePage from './brassonit/pages/HomePage'
+import ShowsPage from './brassonit/pages/ShowsPage'
+import ShowDetailPage from './brassonit/pages/ShowDetailPage'
+import CategoryPage from './brassonit/pages/CategoryPage'
+import SearchPage from './brassonit/pages/SearchPage'
+import ArtistPage from './brassonit/pages/ArtistPage'
+import { LoginPage, SignupPage } from './brassonit/pages/AuthPages'
+import VerifyEmailPage from './brassonit/pages/VerifyEmailPage'
+import CartPage from './brassonit/pages/CartPage'
+import QuoteFormPage from './brassonit/pages/QuoteFormPage'
+import QuotesPage from './brassonit/pages/QuotesPage'
+import WishlistPage from './brassonit/pages/WishlistPage'
+import ProfilePage from './brassonit/pages/ProfilePage'
+import { AboutPage, TermsPage, PrivacyPage } from './brassonit/pages/DocsPages'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,30 +36,41 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <BrowserRouter>
-          <Routes>
-            {/* Public */}
-            <Route element={<MainLayout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/performances" element={<PerformanceListPage />} />
-              <Route path="/performances/:id" element={<PerformanceDetailPage />} />
-              <Route path="/booking/:categoryPath" element={<BookingCategoryPage />} />
-              <Route path="/booking/artist/:id" element={<ArtistDetailPage />} />
-              <Route path="/inquiry" element={<InquiryPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/verify-email" element={<VerifyEmailPage />} />
-            </Route>
+          <BrassProvider>
+            <Routes>
+              {/* Public — 브라소닛 디자인 */}
+              <Route element={<BrassLayout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/shows" element={<ShowsPage />} />
+                <Route path="/shows/:idx" element={<ShowDetailPage />} />
+                <Route path="/category/:cat" element={<CategoryPage />} />
+                <Route path="/category/:cat/:sub" element={<CategoryPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/artist/:id" element={<ArtistPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/verify-email" element={<VerifyEmailPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/quote" element={<QuoteFormPage />} />
+                <Route path="/quotes" element={<QuotesPage />} />
+                <Route path="/wishlist" element={<WishlistPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+              </Route>
 
-            {/* Admin (Protected) */}
-            <Route element={<AdminLayout />}>
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/admin/artists" element={<AdminArtists />} />
-              <Route path="/admin/artists/new" element={<AdminArtistForm />} />
-              <Route path="/admin/artists/:id/edit" element={<AdminArtistForm />} />
-              <Route path="/admin/performances" element={<AdminPerformances />} />
-              <Route path="/admin/inquiries" element={<AdminInquiries />} />
-            </Route>
-          </Routes>
+              {/* Admin (Protected) */}
+              <Route element={<AdminLayout />}>
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/artists" element={<AdminArtists />} />
+                <Route path="/admin/artists/new" element={<AdminArtistForm />} />
+                <Route path="/admin/artists/:id/edit" element={<AdminArtistForm />} />
+                <Route path="/admin/performances" element={<AdminPerformances />} />
+                <Route path="/admin/inquiries" element={<AdminInquiries />} />
+              </Route>
+            </Routes>
+          </BrassProvider>
         </BrowserRouter>
       </AuthProvider>
     </QueryClientProvider>
