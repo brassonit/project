@@ -92,12 +92,6 @@ export function fmtPhone(v: string): string {
 
 export const REGIONS = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원특별자치도', '충청북도', '충청남도', '전북특별자치도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
 
-export const DOC_VERS = ['2026.01.01', '2022.11.28', '2021.08.17', '2020.06.15', '2016.05.21']
-export function verKo(v: string): string {
-  const p = v.split('.')
-  return `${parseInt(p[0], 10)}년 ${parseInt(p[1], 10)}월 ${parseInt(p[2], 10)}일`
-}
-
 export const HISTORY = [
   { y: '2026', t: '누적 섭외 3,000건 돌파 · 브라소닛 썸머 스테이지 개최' },
   { y: '2024', t: '공연기획 사업부 신설 · 자체 기획공연 시즌제 시작' },

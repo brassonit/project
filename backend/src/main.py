@@ -12,6 +12,7 @@ from src.presentation.api.artists import router as artists_router
 from src.presentation.api.auth import router as auth_router
 from src.presentation.api.categories import router as categories_router
 from src.presentation.api.interactions import router as interactions_router
+from src.presentation.api.policies import router as policies_router
 from src.presentation.api.quotes import router as quotes_router
 from src.presentation.api.shows import router as shows_router
 
@@ -42,6 +43,7 @@ app.include_router(artists_router)
 app.include_router(shows_router)
 app.include_router(interactions_router)
 app.include_router(quotes_router)
+app.include_router(policies_router)
 app.include_router(admin_router)
 
 

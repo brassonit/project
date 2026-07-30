@@ -126,6 +126,18 @@ export async function fetchCategories(): Promise<BrCategory[]> {
   return data.categories
 }
 
+export interface PolicyDto {
+  policy_type: string
+  effective_date: string // "2026-01-01"
+  content: string // HTML
+  versions: string[] // 시행일 목록 (최신순, "2026-01-01" 포맷)
+}
+
+export async function fetchPolicy(type: 'terms' | 'privacy', effectiveDate?: string): Promise<PolicyDto> {
+  const { data } = await apiClient.get(`/policies/${type}`, { params: effectiveDate ? { effective_date: effectiveDate } : {} })
+  return data
+}
+
 // ── auth ──
 export async function apiRegister(email: string, password: string): Promise<UserDto> {
   const { data } = await apiClient.post('/auth/register', { email, password })
