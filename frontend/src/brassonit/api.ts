@@ -1,6 +1,6 @@
 // 브라소닛 API 클라이언트 — backend /api 연동
 import apiClient from '../infrastructure/api/client'
-import type { BrArtist, BrShow } from './data'
+import type { BrArtist, BrCategory, BrShow } from './data'
 
 // ── 응답 타입 (backend presentation/schemas) ──
 interface PortfolioItemDto {
@@ -119,6 +119,11 @@ export async function fetchArtistDetail(id: string): Promise<BrArtist> {
 export async function fetchShows(): Promise<BrShow[]> {
   const { data } = await apiClient.get('/shows')
   return data.shows.map(toShow)
+}
+
+export async function fetchCategories(): Promise<BrCategory[]> {
+  const { data } = await apiClient.get('/categories')
+  return data.categories
 }
 
 // ── auth ──

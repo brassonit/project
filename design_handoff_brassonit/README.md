@@ -161,7 +161,7 @@
 - 크기: 본문 13~15px, 페이지 제목 28px/800, 상세 제목 34px/800, 히어로 clamp(36~60px)
 
 ## Assets
-- **파비콘 / 브랜드 마크**: 로고의 b 심볼만 잘라 라일락(#B57EDC)으로 재채색한 마크. 보라 사각 테두리 없음, **흰색 배경**. 파일: `assets/favicon-64.png`, `assets/favicon-32.png`(사이트 <link rel="icon">에 연결), 원본 크기 `assets/logo-mark-lilac.png`(766px), 원본 로고 `assets/brassonit-logo.jpg`
+- **파비콘 / 브랜드 마크**: 로고의 b 심볼만 잘라 라일락(#B57EDC)으로 재채색한 마크. 보라 사각 테두리 없음, **투명 배경**. 파일: `assets/favicon-64.png`, `assets/favicon-32.png`(사이트 <link rel="icon">에 연결), 원본 크기 `assets/logo-mark-lilac.png`(766px), 원본 로고 `assets/brassonit-logo.jpg`
 - 모든 이미지는 picsum.photos 시드 플레이스홀더 — 실제 아티스트/공연 사진으로 교체 필요
 - 홈 히어로 배경은 이미지 파일이 아니라 순수 CSS(그라디언트 + clip-path + keyframes) — 에셋 불필요. 실사 무대 사진/영상으로 교체 시에도 좌측 텍스트 대비(어두운 좌측, 조명은 우측) 유지
 - 아이콘: Lucide (https://lucide.dev) 인라인 SVG (stroke 2, 검색/하트/장바구니/사용자/다운로드/화살표)

@@ -2,15 +2,18 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useBrass } from '../store'
 import { ArtistCard } from '../components'
+import { catNameById, genreNameById } from '../data'
 
 const PAGE = 20
 
 export default function CategoryPage() {
   const navigate = useNavigate()
-  const { artists, loading } = useBrass()
+  const { artists, categories, loading } = useBrass()
   const { cat: rawCat, sub: rawSub } = useParams<{ cat: string; sub?: string }>()
-  const cat = decodeURIComponent(rawCat || '')
-  const sub = rawSub ? decodeURIComponent(rawSub) : null
+  const catId = rawCat ? Number(rawCat) : null
+  const subId = rawSub ? Number(rawSub) : null
+  const cat = catId != null ? catNameById(categories, catId) : ''
+  const sub = subId != null ? genreNameById(categories, subId) : null
   const [pageNo, setPageNo] = useState(1)
   const [mobileCount, setMobileCount] = useState(20)
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width:620px)').matches)
@@ -54,7 +57,7 @@ export default function CategoryPage() {
         <span>›</span>
         {sub ? (
           <>
-            <button onClick={() => navigate(`/category/${encodeURIComponent(cat)}`)}>{cat}</button>
+            <button onClick={() => navigate(`/category/${catId}`)}>{cat}</button>
             <span>›</span>
             <span className="fw6" style={{ color: '#000' }}>
               {sub}

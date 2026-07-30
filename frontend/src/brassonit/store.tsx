@@ -1,7 +1,7 @@
 // 브라소닛 전역 상태 — backend API 연동 (인증/카탈로그/찜/장바구니/견적)
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import type { BrArtist, BrShow } from './data'
+import type { BrArtist, BrCategory, BrShow } from './data'
 import {
   apiCart,
   apiCartAdd,
@@ -24,6 +24,7 @@ import {
   apiWishToggle,
   apiWithdraw,
   fetchArtists,
+  fetchCategories,
   fetchShows,
   type QuoteCreateBody,
   type QuoteDto,
@@ -63,6 +64,7 @@ interface BrassState {
   // 카탈로그
   artists: BrArtist[]
   shows: BrShow[]
+  categories: BrCategory[]
   loading: boolean
   // 사용자
   user: string | null
@@ -102,6 +104,7 @@ export function BrassProvider({ children }: { children: ReactNode }) {
   const navigate = useNavigate()
   const [artists, setArtists] = useState<BrArtist[]>([])
   const [shows, setShows] = useState<BrShow[]>([])
+  const [categories, setCategories] = useState<BrCategory[]>([])
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<string | null>(null)
   const [userEmail, setUserEmail] = useState('')
@@ -131,9 +134,10 @@ export function BrassProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     ;(async () => {
       try {
-        const [a, s] = await Promise.all([fetchArtists(), fetchShows()])
+        const [a, s, c] = await Promise.all([fetchArtists(), fetchShows(), fetchCategories()])
         setArtists(a)
         setShows(s)
+        setCategories(c)
       } catch {
         /* 서버 미기동 시 빈 카탈로그 */
       } finally {
@@ -160,6 +164,7 @@ export function BrassProvider({ children }: { children: ReactNode }) {
     () => ({
       artists,
       shows,
+      categories,
       loading,
       user,
       userEmail,
@@ -310,7 +315,7 @@ export function BrassProvider({ children }: { children: ReactNode }) {
       },
       requireLogin,
     }),
-    [artists, shows, loading, user, userEmail, userName, userPhone, liked, carted, showLiked, quotes, applyUser, loadInteractions, requireLogin],
+    [artists, shows, categories, loading, user, userEmail, userName, userPhone, liked, carted, showLiked, quotes, applyUser, loadInteractions, requireLogin],
   )
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>

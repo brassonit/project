@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useBrass } from '../store'
 import { ShowCard } from '../components'
+import { catIdByName } from '../data'
 
 export default function HomePage() {
   const navigate = useNavigate()
-  const { shows } = useBrass()
+  const { shows, categories } = useBrass()
   const upcoming = shows.filter((s) => s.upcoming)
   return (
     <section>
@@ -26,7 +27,7 @@ export default function HomePage() {
             <br />단 하나의 <em>섭외</em>
           </h1>
           <div className="fx gap12 mt16">
-            <button className="bigbtn noshrink" style={{ flex: 'none' }} onClick={() => navigate('/category/대중가수')}>
+            <button className="bigbtn noshrink" style={{ flex: 'none' }} onClick={() => navigate(`/category/${catIdByName(categories, '대중가수')}`)}>
               아티스트 둘러보기
             </button>
             <button className="bigbtn ghost" style={{ flex: 'none' }} onClick={() => navigate('/quote')}>

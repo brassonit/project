@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { fetchArtistDetail } from '../api'
 import type { BrArtist } from '../data'
-import { fmt } from '../data'
+import { catIdByName, fmt, genreIdByName } from '../data'
 import { useBrass } from '../store'
 import { CartIcon, ChevronLeft, ChevronRight, EyeIcon, ShareIcon } from '../icons'
 
@@ -11,7 +11,7 @@ const PF_ORDER = ['주요활동', '앨범', '수상내역', '경력사항']
 export default function ArtistPage() {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
-  const { artists, loading, liked, carted, toggleLiked, toggleCarted, requireLogin } = useBrass()
+  const { artists, categories, loading, liked, carted, toggleLiked, toggleCarted, requireLogin } = useBrass()
   const [detail, setDetail] = useState<BrArtist | null>(null)
   const [slide, setSlide] = useState(0)
   const [pfOpen, setPfOpen] = useState(false)
@@ -57,9 +57,13 @@ export default function ArtistPage() {
       <div className="fx ac crumb">
         <button onClick={() => navigate('/')}>홈</button>
         <span>›</span>
-        <button onClick={() => navigate(`/category/${encodeURIComponent(cur.cat)}`)}>{cur.cat}</button>
+        <button onClick={() => navigate(`/category/${catIdByName(categories, cur.cat)}`)}>{cur.cat}</button>
         <span>›</span>
-        <button className="fw6" style={{ color: '#000' }} onClick={() => navigate(`/category/${encodeURIComponent(cur.cat)}/${encodeURIComponent(cur.sub)}`)}>
+        <button
+          className="fw6"
+          style={{ color: '#000' }}
+          onClick={() => navigate(`/category/${catIdByName(categories, cur.cat)}/${genreIdByName(categories, cur.cat, cur.sub)}`)}
+        >
           {cur.sub}
         </button>
       </div>

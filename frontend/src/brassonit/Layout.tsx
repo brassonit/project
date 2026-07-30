@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { MENU_ORDER, SUBS } from './data'
+import { catIdByName, catNameById, genreIdByName, MENU_ORDER, SUBS } from './data'
 import { useBrass } from './store'
 import { CartIcon, ChevronUp, HeartIcon, SearchIcon, UserIcon } from './icons'
 import './brassonit.css'
@@ -8,7 +8,7 @@ import './brassonit.css'
 export default function BrassLayout() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { user, cartCount, logout, requireLogin } = useBrass()
+  const { user, cartCount, categories, logout, requireLogin } = useBrass()
   const [q, setQ] = useState('')
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [hoverCat, setHoverCat] = useState<string | null>(null)
@@ -33,11 +33,24 @@ export default function BrassLayout() {
     navigate(path)
   }
 
-  const curCat = location.pathname.startsWith('/category/') ? decodeURIComponent(params.cat || location.pathname.split('/')[2] || '') : null
+  // 카테고리명/장르명 → /category/:catId/:genreId 로 이동
+  const goCat = (cat: string, sub?: string) => {
+    const catId = catIdByName(categories, cat)
+    if (catId == null) return
+    setMegaLock(true)
+    const genreId = sub ? genreIdByName(categories, cat, sub) : undefined
+    navigate(genreId != null ? `/category/${catId}/${genreId}` : `/category/${catId}`)
+  }
+
+  // URL은 /category/:catId/:genreId — 메뉴 렌더링은 기존처럼 이름(SUBS/MENU_ORDER) 기준이라 id→이름만 변환
+  const catIdParam = params.cat ?? location.pathname.split('/')[2]
+  const curCatId = location.pathname.startsWith('/category/') && catIdParam ? Number(catIdParam) : null
+  const curCat = curCatId != null ? catNameById(categories, curCatId) : null
 
   const isMobileList = location.pathname.startsWith('/category/')
   const catForSub = curCat && SUBS[curCat] ? curCat : null
-  const curSub = catForSub ? decodeURIComponent(location.pathname.split('/')[3] || '') : ''
+  const subIdParam = location.pathname.split('/')[3]
+  const curSubId = catForSub && subIdParam ? Number(subIdParam) : null
 
   return (
     <div className="br-root">
@@ -128,10 +141,7 @@ export default function BrassLayout() {
                 <button
                   key={cat}
                   className={`gtab${curCat === cat ? ' on' : ''}${hoverCat === cat ? ' hov' : ''}`}
-                  onClick={() => {
-                    setMegaLock(true)
-                    navigate(`/category/${encodeURIComponent(cat)}`)
-                  }}
+                  onClick={() => goCat(cat)}
                   onMouseEnter={() => setHoverCat(cat)}
                 >
                   {cat}
@@ -144,24 +154,11 @@ export default function BrassLayout() {
               <div className="megagrid">
                 {MENU_ORDER.map((cat) => (
                   <div className="mcol" key={cat}>
-                    <h3
-                      className="mtitle"
-                      onClick={() => {
-                        setMegaLock(true)
-                        navigate(`/category/${encodeURIComponent(cat)}`)
-                      }}
-                    >
+                    <h3 className="mtitle" onClick={() => goCat(cat)}>
                       {cat}
                     </h3>
                     {SUBS[cat].map((sub) => (
-                      <button
-                        key={sub}
-                        className="msub"
-                        onClick={() => {
-                          setMegaLock(true)
-                          navigate(`/category/${encodeURIComponent(cat)}/${encodeURIComponent(sub)}`)
-                        }}
-                      >
+                      <button key={sub} className="msub" onClick={() => goCat(cat, sub)}>
                         {sub}
                       </button>
                     ))}
@@ -175,8 +172,8 @@ export default function BrassLayout() {
               {[null, ...SUBS[catForSub]].map((sub) => (
                 <button
                   key={sub || '전체'}
-                  className={`schip${(curSub || '') === (sub || '') ? ' on' : ''}`}
-                  onClick={() => navigate(sub ? `/category/${encodeURIComponent(catForSub)}/${encodeURIComponent(sub)}` : `/category/${encodeURIComponent(catForSub)}`)}
+                  className={`schip${(curSubId ?? null) === (sub ? genreIdByName(categories, catForSub, sub) ?? null : null) ? ' on' : ''}`}
+                  onClick={() => goCat(catForSub, sub || undefined)}
                 >
                   {sub || '전체'}
                 </button>

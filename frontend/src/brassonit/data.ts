@@ -9,6 +9,30 @@ export const SUBS: Record<string, string[]> = {
 }
 export const MENU_ORDER = ['대중가수', '음악', '강연', '사회자', '퍼포먼스']
 
+export interface BrCategory {
+  id: number
+  name: string
+  genres: { id: number; name: string }[]
+}
+
+// URL(/category/:catId/:genreId)과 카테고리명 사이 변환 — categories는 store에서 API로 로딩
+export const catIdByName = (categories: BrCategory[], name: string): number | undefined =>
+  categories.find((c) => c.name === name)?.id
+
+export const genreIdByName = (categories: BrCategory[], catName: string, subName: string): number | undefined =>
+  categories.find((c) => c.name === catName)?.genres.find((g) => g.name === subName)?.id
+
+export const catNameById = (categories: BrCategory[], id: number): string =>
+  categories.find((c) => c.id === id)?.name || ''
+
+export const genreNameById = (categories: BrCategory[], id: number): string => {
+  for (const c of categories) {
+    const g = c.genres.find((g) => g.id === id)
+    if (g) return g.name
+  }
+  return ''
+}
+
 export interface PortfolioItem {
   tag: string
   year: number

@@ -103,7 +103,13 @@
       "Bash(git rm *)",
       "Bash(git commit -m ' *)",
       "Bash(git add *)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(git config *)",
+      "Bash(openssl s_client -connect brassonitent.com:443 -servername brassonitent.com)",
+      "Bash(openssl x509 *)",
+      "Bash(scp *)",
+      "Bash(pip3 install *)",
+      "Bash(git checkout *)"
     ],
     "deny": [],
     "ask": []
