@@ -4,17 +4,16 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+from src.infrastructure.config import settings
 from src.infrastructure.database.connection import Base
-from src.infrastructure.database.models import (  # noqa: F401
-    ArtistModel,
-    InquiryModel,
-    PerformanceModel,
-    UserModel,
-)
+from src.infrastructure.database import models  # noqa: F401 — 전체 모델 import (Base.metadata 등록용)
 
 config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
+
+# alembic.ini의 고정값 대신 앱 설정(.env의 DATABASE_URL)을 사용
+config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
 
 target_metadata = Base.metadata
 
