@@ -18,6 +18,9 @@ from src.infrastructure.database.models import (
 
 PF_TAG_ORDER = ["주요활동", "앨범", "수상내역", "경력사항"]
 
+# 한글 가나다순 정렬 — 기본 en_US.utf8 콜레이션은 한글을 올바르게 정렬하지 못함
+KOREAN_NAME_ORDER = ArtistModel.name.collate("ko-KR-x-icu")
+
 
 class SqlAlchemyArtistRepository(IArtistRepository):
     def __init__(self, db: Session) -> None:
@@ -129,7 +132,7 @@ class SqlAlchemyArtistRepository(IArtistRepository):
     ) -> tuple[list[Artist], int]:
         q = self._base_query(category, genre, search)
         total = q.count()
-        models = q.order_by(ArtistModel.created_at.desc()).offset(skip).limit(limit).all()
+        models = q.order_by(KOREAN_NAME_ORDER).offset(skip).limit(limit).all()
         return [self._to_entity(m) for m in models], total
 
     async def update(self, artist: Artist) -> Artist:
@@ -160,7 +163,7 @@ class SqlAlchemyArtistRepository(IArtistRepository):
     async def find_all_admin(self, skip: int = 0, limit: int = 20) -> tuple[list[Artist], int]:
         q = self.db.query(ArtistModel)
         total = q.count()
-        models = q.order_by(ArtistModel.created_at.desc()).offset(skip).limit(limit).all()
+        models = q.order_by(KOREAN_NAME_ORDER).offset(skip).limit(limit).all()
         return [self._to_entity(m) for m in models], total
 
     async def count_all(self) -> int:
