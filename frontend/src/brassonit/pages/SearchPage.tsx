@@ -1,16 +1,15 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { MENU_ORDER } from '../data'
 import { useBrass } from '../store'
 import { ArtistCard } from '../components'
 
 export default function SearchPage() {
   const navigate = useNavigate()
-  const { artists } = useBrass()
+  const { artists, categories } = useBrass()
   const [sp] = useSearchParams()
   const q = (sp.get('q') || '').trim()
 
   const found = artists.filter((a) => q && (a.name.includes(q) || a.desc.includes(q) || a.cat.includes(q) || a.sub.includes(q)))
-  const groups = MENU_ORDER.map((cat) => ({ cat, list: found.filter((a) => a.cat === cat) })).filter((g) => g.list.length)
+  const groups = categories.map((c) => ({ cat: c.name, list: found.filter((a) => a.cat === c.name) })).filter((g) => g.list.length)
 
   return (
     <section>

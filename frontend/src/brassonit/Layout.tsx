@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { catIdByName, catNameById, genreIdByName, MENU_ORDER, SUBS } from './data'
+import { catIdByName, catNameById, genreIdByName } from './data'
 import { useBrass } from './store'
 import { CartIcon, ChevronUp, HeartIcon, SearchIcon, UserIcon } from './icons'
 import './brassonit.css'
@@ -42,13 +42,14 @@ export default function BrassLayout() {
     navigate(genreId != null ? `/category/${catId}/${genreId}` : `/category/${catId}`)
   }
 
-  // URL은 /category/:catId/:genreId — 메뉴 렌더링은 기존처럼 이름(SUBS/MENU_ORDER) 기준이라 id→이름만 변환
+  // URL은 /category/:catId/:genreId — 메뉴 렌더링은 API로 로딩된 categories 기준이라 id→이름만 변환
   const catIdParam = params.cat ?? location.pathname.split('/')[2]
   const curCatId = location.pathname.startsWith('/category/') && catIdParam ? Number(catIdParam) : null
   const curCat = curCatId != null ? catNameById(categories, curCatId) : null
 
   const isMobileList = location.pathname.startsWith('/category/')
-  const catForSub = curCat && SUBS[curCat] ? curCat : null
+  const curCatGenres = categories.find((c) => c.name === curCat)?.genres ?? []
+  const catForSub = curCat && curCatGenres.length > 0 ? curCat : null
   const subIdParam = location.pathname.split('/')[3]
   const curSubId = catForSub && subIdParam ? Number(subIdParam) : null
 
@@ -137,14 +138,14 @@ export default function BrassLayout() {
           {/* 메가메뉴는 메뉴 탭 영역(gnbwrap)에 hover했을 때만 열림 — CSS `.gnbwrap:hover + .mega` */}
           <div className="gnbwrap">
             <div className="fx ac gnbrow">
-              {MENU_ORDER.map((cat) => (
+              {categories.map((c) => (
                 <button
-                  key={cat}
-                  className={`gtab${curCat === cat ? ' on' : ''}${hoverCat === cat ? ' hov' : ''}`}
-                  onClick={() => goCat(cat)}
-                  onMouseEnter={() => setHoverCat(cat)}
+                  key={c.name}
+                  className={`gtab${curCat === c.name ? ' on' : ''}${hoverCat === c.name ? ' hov' : ''}`}
+                  onClick={() => goCat(c.name)}
+                  onMouseEnter={() => setHoverCat(c.name)}
                 >
-                  {cat}
+                  {c.name}
                 </button>
               ))}
             </div>
@@ -152,14 +153,14 @@ export default function BrassLayout() {
           <div className="mega">
             <div className="wrap">
               <div className="megagrid">
-                {MENU_ORDER.map((cat) => (
-                  <div className="mcol" key={cat}>
-                    <h3 className="mtitle" onClick={() => goCat(cat)}>
-                      {cat}
+                {categories.map((c) => (
+                  <div className="mcol" key={c.name}>
+                    <h3 className="mtitle" onClick={() => goCat(c.name)}>
+                      {c.name}
                     </h3>
-                    {SUBS[cat].map((sub) => (
-                      <button key={sub} className="msub" onClick={() => goCat(cat, sub)}>
-                        {sub}
+                    {c.genres.map((g) => (
+                      <button key={g.name} className="msub" onClick={() => goCat(c.name, g.name)}>
+                        {g.name}
                       </button>
                     ))}
                   </div>
@@ -169,7 +170,7 @@ export default function BrassLayout() {
           </div>
           {isMobileList && catForSub && (
             <div className="subbar">
-              {[null, ...SUBS[catForSub]].map((sub) => (
+              {[null, ...curCatGenres.map((g) => g.name)].map((sub) => (
                 <button
                   key={sub || '전체'}
                   className={`schip${(curSubId ?? null) === (sub ? genreIdByName(categories, catForSub, sub) ?? null : null) ? ' on' : ''}`}

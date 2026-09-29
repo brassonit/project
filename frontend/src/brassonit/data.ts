@@ -1,14 +1,5 @@
 // 브라소닛 타입/상수 — 데이터는 API에서 로딩 (store.tsx)
 
-export const SUBS: Record<string, string[]> = {
-  대중가수: ['아이돌', '발라드', '트로트', '힙합'],
-  음악: ['재즈', '클래식', '뮤지컬', '국악'],
-  강연: ['셀럽', '배우'],
-  사회자: ['전문MC', '아나운서'],
-  퍼포먼스: ['마술', '무용', '댄스'],
-}
-export const MENU_ORDER = ['대중가수', '음악', '강연', '사회자', '퍼포먼스']
-
 export interface BrCategory {
   id: number
   name: string
