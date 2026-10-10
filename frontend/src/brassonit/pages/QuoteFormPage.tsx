@@ -256,7 +256,7 @@ export default function QuoteFormPage() {
             <div className="fx gap8" style={{ flexWrap: 'wrap' }}>
               {selArtists.map((a) => (
                 <span className="fx ac gap8 qchip" key={a.id}>
-                  <img src={a.images[0]} alt={a.name} />
+                  <img src={a.thumbnails[0]} alt={a.name} />
                   {a.name}
                 </span>
               ))}

@@ -36,6 +36,7 @@ def _to_response(a: Artist) -> ArtistResponse:
         view_count=a.view_count,
         is_active=a.is_active,
         images=a.images,
+        thumbnails=a.thumbnails,
         portfolios=[PortfolioItem(tag=p.tag, year=p.year, content=p.content) for p in a.portfolios],
         videos=[VideoItem(video_url=v.video_url, title=v.title) for v in a.videos],
         created_at=a.created_at,

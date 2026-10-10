@@ -34,7 +34,7 @@ export function ArtistCard({ artist, withActions = true }: { artist: BrArtist; w
   return (
     <div className="acard" onClick={() => navigate(`/artist/${artist.id}`)}>
       <div className="sq posrel">
-        <img src={artist.images[0]} alt={artist.name} />
+        <img src={artist.thumbnails[0]} alt={artist.name} />
       </div>
       <div className="aname">{artist.name}</div>
       <p className="adesc">{artist.desc}</p>

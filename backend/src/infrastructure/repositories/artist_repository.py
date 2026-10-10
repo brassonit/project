@@ -15,6 +15,7 @@ from src.infrastructure.database.models import (
     CategoryModel,
     GenreModel,
 )
+from src.infrastructure.storage.object_storage import artist_image_url
 
 PF_TAG_ORDER = ["주요활동", "앨범", "수상내역", "경력사항"]
 
@@ -32,16 +33,18 @@ class SqlAlchemyArtistRepository(IArtistRepository):
             self.db.query(CategoryModel).filter(CategoryModel.id == genre.category_id).first() if genre else None
         )
         images: list[str] = []
+        thumbnails: list[str] = []
         portfolios: list[ArtistPortfolio] = []
         videos: list[ArtistVideo] = []
         if with_children:
-            images = [
-                r.image_url
-                for r in self.db.query(ArtistImageModel)
+            image_rows = (
+                self.db.query(ArtistImageModel)
                 .filter(ArtistImageModel.artist_id == model.id)
                 .order_by(ArtistImageModel.sort_order)
                 .all()
-            ]
+            )
+            images = [artist_image_url(r.image_url, "originals") for r in image_rows]
+            thumbnails = [artist_image_url(r.image_url, "thumbnails") for r in image_rows]
             portfolios = [
                 ArtistPortfolio(id=r.id, tag=r.tag, year=r.year, content=r.content)
                 for r in self.db.query(ArtistPortfolioModel)
@@ -67,6 +70,7 @@ class SqlAlchemyArtistRepository(IArtistRepository):
             view_count=model.view_count,
             is_active=model.is_active,
             images=images,
+            thumbnails=thumbnails,
             portfolios=portfolios,
             videos=videos,
             genre_name=genre.name if genre else None,

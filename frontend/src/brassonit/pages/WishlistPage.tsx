@@ -48,7 +48,7 @@ export default function WishlistPage() {
                 <input type="checkbox" className="ckb" checked={!!sel[a.id]} onChange={() => setSel((m) => ({ ...m, [a.id]: !m[a.id] }))} />
               </span>
               <div className="fx ac gap12 f1 pointer" onClick={() => navigate(`/artist/${a.id}`)}>
-                <img className="qimg" src={a.images[0]} alt={a.name} />
+                <img className="qimg" src={a.thumbnails[0]} alt={a.name} />
                 <span className="col gap4">
                   <span className="fw6 fs14">{a.name}</span>
                   <span className="fs13" style={{ color: '#666' }}>

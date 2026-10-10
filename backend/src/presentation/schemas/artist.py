@@ -50,6 +50,7 @@ class ArtistResponse(BaseModel):
     view_count: int
     is_active: bool
     images: list[str]
+    thumbnails: list[str]
     portfolios: list[PortfolioItem]
     videos: list[VideoItem]
     created_at: datetime

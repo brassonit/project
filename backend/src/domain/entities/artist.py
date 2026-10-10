@@ -31,7 +31,8 @@ class Artist:
     like_count: int = 0
     view_count: int = 0
     is_active: bool = True
-    images: list[str] = field(default_factory=list)  # 정렬된 이미지 URL, 첫 번째가 대표
+    images: list[str] = field(default_factory=list)  # 정렬된 원본 이미지 URL, 첫 번째가 대표
+    thumbnails: list[str] = field(default_factory=list)  # images와 동일 순서의 썸네일 URL
     portfolios: list[ArtistPortfolio] = field(default_factory=list)
     videos: list[ArtistVideo] = field(default_factory=list)
     genre_name: Optional[str] = None  # 조회 시 채워짐

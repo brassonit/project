@@ -23,6 +23,7 @@ interface ArtistDto {
   like_count: number
   view_count: number
   images: string[]
+  thumbnails: string[]
   portfolios: PortfolioItemDto[]
   videos: VideoItemDto[]
 }
@@ -72,6 +73,7 @@ const toArtist = (d: ArtistDto): BrArtist => ({
   likes: d.like_count,
   views: d.view_count,
   images: d.images.length ? d.images : [`https://picsum.photos/seed/${d.id}/700/700`],
+  thumbnails: d.thumbnails.length ? d.thumbnails : d.images.length ? d.images : [`https://picsum.photos/seed/${d.id}/700/700`],
   portfolio: d.portfolios.map((p) => ({ tag: p.tag, year: p.year, text: p.content })),
   videos: d.videos.map((v) => ({ src: v.video_url, title: v.title || '' })),
 })

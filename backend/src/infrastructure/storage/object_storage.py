@@ -15,6 +15,21 @@ from fastapi import UploadFile
 from src.infrastructure.config import settings
 
 
+def artist_image_url(stored: str, prefix: str) -> str:
+    """아티스트 이미지 URL 조립.
+
+    OCI 업로드본은 DB에 파일명만 저장되어 있어 prefix(originals/thumbnails)를 붙여 조립한다.
+    관리자 로컬 업로드본('/uploads/...' 등 경로 포함 값)은 원본/썸네일 구분이 없어 그대로 반환한다.
+    """
+    if not stored or "/" in stored:
+        return stored
+    key = f"{prefix}/{stored}"
+    return (
+        f"https://objectstorage.{settings.OCI_REGION}.oraclecloud.com"
+        f"/n/{settings.OCI_NAMESPACE}/b/{settings.OCI_BUCKET_NAME}/o/{quote(key, safe='')}"
+    )
+
+
 class OciObjectStorage:
     def __init__(self) -> None:
         self.namespace = settings.OCI_NAMESPACE

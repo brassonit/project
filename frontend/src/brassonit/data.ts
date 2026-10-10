@@ -43,6 +43,7 @@ export interface BrArtist {
   likes: number
   views: number
   images: string[]
+  thumbnails: string[]
   portfolio: PortfolioItem[]
   videos: ArtistVideo[]
 }
