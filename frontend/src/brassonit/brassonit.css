@@ -101,7 +101,7 @@
 .mypg { padding-bottom: 100px; }
 .qhead { border-bottom: 2px solid #000; padding: 0 0 10px; font-size: 12px; font-weight: 700; color: #888; letter-spacing: 1px; }
 .qrow { border-bottom: 1px solid #ddd; padding: 14px 0; }
-.qimg { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; }
+.qimg { width: 56px; height: 56px; object-fit: cover; object-position: top; border-radius: 8px; }
 .qcol { width: 160px; flex: none; }
 .qcol2 { width: 80px; flex: none; text-align: right; }
 .qtag { display: inline-block; background: var(--color-accent-100); color: var(--color-accent-700); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 8px; }
@@ -137,7 +137,7 @@
 .qfrow { border-bottom: 1px solid #ddd; padding: 9px 0; }
 .qsub { font-size: 15px; font-weight: 800; margin: 28px 0 12px; font-family: var(--font-heading); }
 .qchip { border: 1px solid #ddd; border-radius: 8px; padding: 6px 12px 6px 6px; font-size: 13px; font-weight: 600; }
-.qchip img { width: 28px; height: 28px; object-fit: cover; border-radius: 8px; }
+.qchip img { width: 28px; height: 28px; object-fit: cover; object-position: top; border-radius: 8px; }
 .qshowbx { border: 1px solid #ccc; border-radius: 8px; padding: 16px; }
 /* 출연진 — 칩/보더 없는 플레인 텍스트 버튼 */
 .castlnk { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; }
@@ -212,7 +212,7 @@
 .grid5 > * { min-width: 0; }
 .acard { cursor: pointer; }
 .sq { aspect-ratio: 1; overflow: hidden; background: #f0eef2; border-radius: 8px; }
-.sq img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.sq img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.4s; }
 .acard:hover .sq img { transform: scale(1.04); }
 .aname { font-size: 15.5px; font-weight: 700; margin: 12px 0 4px; }
 .adesc { font-size: 13px; color: #555; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 0 0 10px; }
@@ -229,7 +229,7 @@
 .dtl { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 32px 0 80px; }
 .dtl2 { grid-template-columns: 1.2fr 1fr; }
 .slider { position: relative; aspect-ratio: 1; overflow: hidden; background: #f0eef2; border-radius: 8px; }
-.slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 0; }
 .snav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.55); color: #fff; border: 0; width: 44px; height: 44px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .snav:hover { background: var(--color-accent); }
 .dots { position: absolute; left: 0; right: 0; bottom: 14px; gap: 8px; justify-content: center; display: flex; }
