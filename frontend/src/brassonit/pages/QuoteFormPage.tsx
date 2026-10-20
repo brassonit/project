@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { apiErrorMessage, apiUploadQuoteFiles } from '../api'
 import { fmtPhone, REGIONS } from '../data'
 import { useBrass } from '../store'
+import { NoImage } from '../components'
 
 interface QuoteFormState {
   qfIds?: string[]
@@ -256,7 +257,7 @@ export default function QuoteFormPage() {
             <div className="fx gap8" style={{ flexWrap: 'wrap' }}>
               {selArtists.map((a) => (
                 <span className="fx ac gap8 qchip" key={a.id}>
-                  <img src={a.thumbnails[0]} alt={a.name} />
+                  {a.thumbnails[0] ? <img src={a.thumbnails[0]} alt={a.name} /> : <NoImage compact size={14} className="qchipimg" />}
                   {a.name}
                 </span>
               ))}

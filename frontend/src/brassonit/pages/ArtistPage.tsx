@@ -5,6 +5,7 @@ import type { BrArtist } from '../data'
 import { catIdByName, fmt, genreIdByName } from '../data'
 import { useBrass } from '../store'
 import { CartIcon, ChevronLeft, ChevronRight, EyeIcon, ShareIcon } from '../icons'
+import { NoImage } from '../components'
 
 const PF_ORDER = ['주요활동', '앨범', '수상내역', '경력사항']
 
@@ -69,7 +70,7 @@ export default function ArtistPage() {
       </div>
       <div className="dtl">
         <div className="slider">
-          <img src={cur.images[slide % n]} alt={cur.name} />
+          {n > 0 ? <img src={cur.images[slide % n]} alt={cur.name} /> : <NoImage size={40} />}
           {n > 1 && (
             <>
               <button className="snav" style={{ left: 0 }} onClick={() => setSlide((s) => (s + n - 1) % n)}>

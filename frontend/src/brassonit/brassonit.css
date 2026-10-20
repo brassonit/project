@@ -102,6 +102,12 @@
 .qhead { border-bottom: 2px solid #000; padding: 0 0 10px; font-size: 12px; font-weight: 700; color: #888; letter-spacing: 1px; }
 .qrow { border-bottom: 1px solid #ddd; padding: 14px 0; }
 .qimg { width: 56px; height: 56px; object-fit: cover; object-position: top; border-radius: 8px; }
+.qchipimg { width: 28px; height: 28px; border-radius: 8px; flex: none; }
+
+/* — 이미지 없음 플레이스홀더 — */
+.noimg { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #f0eef2; color: #aaa; }
+.noimg span { font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+.noimg-sm { border-radius: 8px; color: #bbb; }
 .qcol { width: 160px; flex: none; }
 .qcol2 { width: 80px; flex: none; text-align: right; }
 .qtag { display: inline-block; background: var(--color-accent-100); color: var(--color-accent-700); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 8px; }

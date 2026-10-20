@@ -72,8 +72,8 @@ const toArtist = (d: ArtistDto): BrArtist => ({
   desc: d.description,
   likes: d.like_count,
   views: d.view_count,
-  images: d.images.length ? d.images : [`https://picsum.photos/seed/${d.id}/700/700`],
-  thumbnails: d.thumbnails.length ? d.thumbnails : d.images.length ? d.images : [`https://picsum.photos/seed/${d.id}/700/700`],
+  images: d.images,
+  thumbnails: d.thumbnails.length ? d.thumbnails : d.images,
   portfolio: d.portfolios.map((p) => ({ tag: p.tag, year: p.year, text: p.content })),
   videos: d.videos.map((v) => ({ src: v.video_url, title: v.title || '' })),
 })

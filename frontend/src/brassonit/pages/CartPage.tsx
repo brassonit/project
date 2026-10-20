@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBrass } from '../store'
+import { NoImage } from '../components'
 
 export default function CartPage() {
   const navigate = useNavigate()
@@ -56,7 +57,7 @@ export default function CartPage() {
                 <input type="checkbox" className="ckb" checked={!!sel[a.id]} onChange={() => setSel((m) => ({ ...m, [a.id]: !m[a.id] }))} />
               </span>
               <div className="fx ac gap12 f1 pointer" onClick={() => navigate(`/artist/${a.id}`)}>
-                <img className="qimg" src={a.thumbnails[0]} alt={a.name} />
+                {a.thumbnails[0] ? <img className="qimg" src={a.thumbnails[0]} alt={a.name} /> : <NoImage compact size={18} className="qimg" />}
                 <span className="fw6 fs14">{a.name}</span>
               </div>
               <span className="qcol fs13">

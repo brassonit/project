@@ -5,6 +5,15 @@ export const SearchIcon = ({ size = 18 }: { size?: number }) => (
     <path d="m21 21-4.3-4.3" />
   </svg>
 )
+export const ImageOffIcon = ({ size = 22 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="2" y1="2" x2="22" y2="22" />
+    <path d="M10.41 5H20a2 2 0 0 1 2 2v9.59" />
+    <path d="M21 15.5 16 10l-2.5 2.5" />
+    <path d="M5 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14" />
+    <circle cx="9" cy="9" r="1.5" />
+  </svg>
+)
 export const UserIcon = ({ size = 22 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <circle cx="12" cy="8" r="4" />

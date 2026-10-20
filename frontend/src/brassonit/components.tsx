@@ -2,7 +2,16 @@ import { useNavigate } from 'react-router-dom'
 import type { BrArtist, BrShow } from './data'
 import { fmt } from './data'
 import { useBrass } from './store'
-import { CartIcon, EyeIcon, HeartIcon } from './icons'
+import { CartIcon, EyeIcon, HeartIcon, ImageOffIcon } from './icons'
+
+export function NoImage({ size = 28, compact = false, className = '' }: { size?: number; compact?: boolean; className?: string }) {
+  return (
+    <div className={`noimg${compact ? ' noimg-sm' : ''} ${className}`.trim()}>
+      <ImageOffIcon size={size} />
+      {!compact && <span>No Image</span>}
+    </div>
+  )
+}
 
 export function ShowCard({ show }: { show: BrShow }) {
   const navigate = useNavigate()
@@ -33,9 +42,7 @@ export function ArtistCard({ artist, withActions = true }: { artist: BrArtist; w
   const { liked, carted, toggleLiked, toggleCarted } = useBrass()
   return (
     <div className="acard" onClick={() => navigate(`/artist/${artist.id}`)}>
-      <div className="sq posrel">
-        <img src={artist.thumbnails[0]} alt={artist.name} />
-      </div>
+      <div className="sq posrel">{artist.thumbnails[0] ? <img src={artist.thumbnails[0]} alt={artist.name} /> : <NoImage />}</div>
       <div className="aname">{artist.name}</div>
       <p className="adesc">{artist.desc}</p>
       {withActions && (
