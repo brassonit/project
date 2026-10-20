@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useNavigationType, useParams } from 'react-router-dom'
 import { catIdByName, catNameById, genreIdByName } from './data'
 import { useBrass } from './store'
 import { CartIcon, ChevronUp, HeartIcon, SearchIcon, UserIcon } from './icons'
@@ -8,6 +8,7 @@ import './brassonit.css'
 export default function BrassLayout() {
   const navigate = useNavigate()
   const location = useLocation()
+  const navType = useNavigationType()
   const { user, cartCount, categories, logout, requireLogin } = useBrass()
   const [q, setQ] = useState('')
   const [userMenuOpen, setUserMenuOpen] = useState(false)
@@ -18,8 +19,10 @@ export default function BrassLayout() {
   const params = useParams()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location.pathname, location.search])
+    // 뒤로/앞으로가기(POP)는 브라우저가 원래 스크롤 위치를 복원하도록 두고,
+    // 새 페이지로 이동(PUSH/REPLACE)할 때만 맨 위로 스크롤
+    if (navType !== 'POP') window.scrollTo(0, 0)
+  }, [location.pathname, location.search, navType])
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 400)

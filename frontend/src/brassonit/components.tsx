@@ -8,7 +8,7 @@ export function NoImage({ size = 28, compact = false, className = '' }: { size?:
   return (
     <div className={`noimg${compact ? ' noimg-sm' : ''} ${className}`.trim()}>
       <ImageOffIcon size={size} />
-      {!compact && <span>No Image</span>}
+      {!compact && <span>이미지 준비중입니다</span>}
     </div>
   )
 }
