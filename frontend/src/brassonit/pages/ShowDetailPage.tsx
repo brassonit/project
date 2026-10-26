@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { fmt } from '../data'
 import { useBrass } from '../store'
@@ -11,6 +11,9 @@ export default function ShowDetailPage() {
   const [shared, setShared] = useState(false)
   const [introOpen, setIntroOpen] = useState(false)
   const [vidOpen, setVidOpen] = useState(false)
+  const [introClamped, setIntroClamped] = useState(false)
+  const introRef = useRef<HTMLDivElement>(null)
+  const sh = shows.find((s) => s.id === showId)
 
   useEffect(() => {
     setShared(false)
@@ -18,7 +21,18 @@ export default function ShowDetailPage() {
     setVidOpen(false)
   }, [showId])
 
-  const sh = shows.find((s) => s.id === showId)
+  // 공연 소개 — 접힌 상태(5줄 clamp)에서 실제로 내용이 넘치는 경우에만 더보기 버튼 노출
+  // (데이터가 비동기로 로딩되므로 sh.intro가 채워진 뒤에야 introRef가 DOM에 붙는다 — deps에 포함해 재측정)
+  useLayoutEffect(() => {
+    if (introOpen) return
+    const el = introRef.current
+    if (!el) return
+    const measure = () => setIntroClamped(el.scrollHeight > el.clientHeight + 1)
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [showId, introOpen, sh?.intro])
+
   if (!sh) return <div className="empty">{loading ? '불러오는 중…' : '공연을 찾을 수 없습니다.'}</div>
 
   const openArtist = (name: string, id?: string) => {
@@ -113,14 +127,16 @@ export default function ShowDetailPage() {
         <div className="fx jb sechd">
           <h2 className="sech2">공연 소개</h2>
         </div>
-        <div className={`introwrap${introOpen ? '' : ' clamp'}`}>
+        <div ref={introRef} className={`introwrap${introOpen ? '' : ' clamp'}`}>
           {sh.intro.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
-        <button className="moreb" style={{ maxWidth: 960 }} onClick={() => setIntroOpen((v) => !v)}>
-          {introOpen ? '접기 ↑' : '더보기 ↓'}
-        </button>
+        {(introOpen || introClamped) && (
+          <button className="moreb" style={{ maxWidth: 960 }} onClick={() => setIntroOpen((v) => !v)}>
+            {introOpen ? '접기 ↑' : '더보기 ↓'}
+          </button>
+        )}
       </div>
 
       <div className="sect" style={{ paddingTop: 0 }}>
