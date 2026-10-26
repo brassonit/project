@@ -94,14 +94,40 @@ export function AboutPage() {
         <p className="docsub">BRASSONIT — 연예인 섭외대행 · 공연기획</p>
         <h2 className="doch2">회사 소개</h2>
         <p className="docp">
-          브라소닛(brassonit)은 연예인 섭외대행과 공연기획을 전문으로 하는 엔터테인먼트 에이전시입니다. 대중가수, 연주자, 강연자, 사회자,
-          퍼포먼스 팀까지 300여 팀의 검증된 아티스트 네트워크를 바탕으로 기업 행사, 지역 축제, 대학 행사, 방송 무대에 최적의 라인업을
-          제안합니다.
+          2014년에 설립된 브라소닛은 공연 제작 및 기획을 주축으로 성장해 온 공연기획사입니다. 2015년 '브라소닛 빅밴드' 창단을 기점으로
+          조수미, 나윤선을 비롯하여 최백호, 양희은, YB(윤도현밴드), 김연자 등과 함께한 콜라보 및 전국 투어로 수준 높은 무대를 선보여
+          왔습니다.
         </p>
         <p className="docp">
-          단순 중개를 넘어 행사 기획, 출연 계약, 리허설, 무대 운영까지 전 과정을 원스톱으로 대행하며, 모든 견적 문의에 24시간 이내 회신을
-          원칙으로 합니다.
+          재즈에서 출발한 저희의 무대는 이제 대중가수 콘서트와 힙합·밴드·트롯 페스타, 그리고 장르의 경계를 넘나드는 다원예술까지
+          넓어졌습니다. 최근 3년 동안 전국의 문예회관과 문화재단, 지역 축제, 교육청 기획공연 등에서 60여 개의 무대를 제작하고
+          진행했으며, 올 하반기에도 20여 개의 공연이 이어집니다.
         </p>
+        <p className="docp">
+          주최사의 기획·일정·예산에 맞춰 출연진을 조합하는 4개의 맞춤형 콘서트 브랜드와 온 가족이 함께 즐기는 다원예술 작품을
+          선보이며, 섭외부터 연출, 프로덕션, 현장 진행까지 브라소닛이 한 번에 책임집니다.
+        </p>
+        <p className="docp">
+          아울러 아티스트 및 콘텐츠 매니지먼트를 전문으로 하는 (주)에이엠지이엔티와 문화예술 작품의 배급, 유통 및 컨설팅을 담당하는
+          (주)온아트를 자회사로 운영하며 시너지를 내고 있습니다.
+        </p>
+        <h2 className="doch2">회사 정보</h2>
+        <div className="fx pfrow">
+          <span className="histy">대표</span>
+          <span>천인우 (Inwoo Chun, Daniel)</span>
+        </div>
+        <div className="fx pfrow">
+          <span className="histy">기획팀</span>
+          <span>서울특별시 강남구 논현로 132길 13, 4층 4853호</span>
+        </div>
+        <div className="fx pfrow">
+          <span className="histy">제작팀</span>
+          <span>서울특별시 강남구 도곡로 84길 6, 지하 1층 24-89호</span>
+        </div>
+        <div className="fx pfrow">
+          <span className="histy">연락처</span>
+          <span>010-9054-8209 (Fax. 050-4435-8209) · brassonitent@daum.net</span>
+        </div>
         <h2 className="doch2">회사 연혁</h2>
         {HISTORY.map((h) => (
           <div className="fx pfrow" key={h.y}>
