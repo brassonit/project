@@ -8,7 +8,7 @@ export default function SearchPage() {
   const [sp] = useSearchParams()
   const q = (sp.get('q') || '').trim()
 
-  const found = artists.filter((a) => q && (a.name.includes(q) || a.desc.includes(q) || a.cat.includes(q) || a.sub.includes(q)))
+  const found = artists.filter((a) => q && (a.name.includes(q) || a.detailDesc.includes(q) || a.cat.includes(q) || a.sub.includes(q)))
   const groups = categories.map((c) => ({ cat: c.name, list: found.filter((a) => a.cat === c.name) })).filter((g) => g.list.length)
 
   return (

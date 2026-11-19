@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { fetchArtistDetail } from '../api'
 import type { BrArtist } from '../data'
@@ -15,12 +15,16 @@ export default function ArtistPage() {
   const { artists, categories, loading, liked, carted, toggleLiked, toggleCarted, requireLogin } = useBrass()
   const [detail, setDetail] = useState<BrArtist | null>(null)
   const [slide, setSlide] = useState(0)
+  const [detailOpen, setDetailOpen] = useState(false)
+  const [detailClamped, setDetailClamped] = useState(false)
+  const detailRef = useRef<HTMLDivElement>(null)
   const [pfOpen, setPfOpen] = useState(false)
   const [vidOpen, setVidOpen] = useState(false)
   const [shared, setShared] = useState(false)
 
   useEffect(() => {
     setSlide(0)
+    setDetailOpen(false)
     setPfOpen(false)
     setVidOpen(false)
     setShared(false)
@@ -29,6 +33,18 @@ export default function ArtistPage() {
   }, [id])
 
   const cur = detail || artists.find((a) => a.id === id)
+
+  // 상세소개 — 접힌 상태(5줄 clamp)에서 실제로 내용이 넘치는 경우에만 더보기 버튼 노출
+  useLayoutEffect(() => {
+    if (detailOpen) return
+    const el = detailRef.current
+    if (!el) return
+    const measure = () => setDetailClamped(el.scrollHeight > el.clientHeight + 1)
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [id, detailOpen, cur?.detailDesc])
+
   if (!cur) return <div className="empty">{loading ? '불러오는 중…' : '아티스트를 찾을 수 없습니다.'}</div>
   const n = cur.images.length
 
@@ -134,6 +150,20 @@ export default function ArtistPage() {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="sect" style={{ paddingTop: 0 }}>
+        <div className="fx jb sechd">
+          <h2 className="sech2">상세소개</h2>
+        </div>
+        <div ref={detailRef} className={`introwrap${detailOpen ? '' : ' clamp'}`}>
+          <p style={{ whiteSpace: 'pre-line' }}>{cur.detailDesc}</p>
+        </div>
+        {(detailOpen || detailClamped) && (
+          <button className="moreb" style={{ maxWidth: 960 }} onClick={() => setDetailOpen((v) => !v)}>
+            {detailOpen ? '접기 ↑' : '더보기 ↓'}
+          </button>
+        )}
       </div>
 
       <div className="sect" style={{ paddingTop: 0 }}>

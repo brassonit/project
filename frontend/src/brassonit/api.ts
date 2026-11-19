@@ -20,6 +20,7 @@ interface ArtistDto {
   name: string
   members: string | null
   description: string
+  modifier: string
   like_count: number
   view_count: number
   images: string[]
@@ -69,7 +70,8 @@ const toArtist = (d: ArtistDto): BrArtist => ({
   cat: d.category_name || '',
   sub: d.genre_name || '',
   members: d.members || '',
-  desc: d.description,
+  desc: d.modifier,
+  detailDesc: d.description,
   likes: d.like_count,
   views: d.view_count,
   images: d.images,

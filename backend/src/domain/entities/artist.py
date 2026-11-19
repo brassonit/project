@@ -27,7 +27,8 @@ class Artist:
     genre_id: int
     name: str
     members: Optional[str]  # 예) 솔로, 5인조
-    description: str
+    description: str  # 상세소개
+    modifier: str = ""  # 소개(수식어)
     like_count: int = 0
     view_count: int = 0
     is_active: bool = True
