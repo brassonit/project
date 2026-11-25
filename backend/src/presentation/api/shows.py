@@ -36,6 +36,7 @@ def _to_response(s: Show) -> ShowResponse:
         image_url=s.image_url,
         like_count=s.like_count,
         view_count=s.view_count,
+        is_active=s.is_active,
         is_upcoming=s.is_upcoming(),
         lineup=[LineupItem(artist_id=lu.artist_id, artist_name=lu.artist_name) for lu in s.lineup],
         tickets=[TicketItem(label=t.label, url=t.url) for t in s.tickets],
@@ -53,7 +54,7 @@ async def list_shows(repo: SqlAlchemyShowRepository = Depends(_get_repo)):
 @router.get("/{show_id}", response_model=ShowResponse)
 async def get_show(show_id: str, repo: SqlAlchemyShowRepository = Depends(_get_repo)):
     show = await repo.find_by_id(show_id)
-    if not show:
+    if not show or not show.is_active:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="공연을 찾을 수 없습니다.")
     await repo.increment_view(show_id)
     show.view_count += 1
@@ -115,6 +116,8 @@ async def update_show(
         show.tickets = [ShowTicket(label=t.label, url=t.url) for t in request.tickets]
     if request.videos is not None:
         show.videos = [ShowVideo(video_url=v.video_url, title=v.title) for v in request.videos]
+    if request.is_active is not None:
+        show.is_active = request.is_active
     try:
         return _to_response(await repo.update(show))
     except ValueError as e:

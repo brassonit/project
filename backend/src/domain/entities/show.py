@@ -40,6 +40,7 @@ class Show:
     image_url: Optional[str] = None
     like_count: int = 0
     view_count: int = 0
+    is_active: bool = True
     lineup: list[ShowLineup] = field(default_factory=list)
     tickets: list[ShowTicket] = field(default_factory=list)
     videos: list[ShowVideo] = field(default_factory=list)

@@ -51,6 +51,7 @@ class SqlAlchemyShowRepository(IShowRepository):
             image_url=model.image_url,
             like_count=model.like_count,
             view_count=model.view_count,
+            is_active=model.is_active,
             lineup=[
                 ShowLineup(artist_id=r.ShowLineupModel.artist_id, artist_name=r.name, sort_order=r.ShowLineupModel.sort_order)
                 for r in lineup_rows
@@ -94,7 +95,7 @@ class SqlAlchemyShowRepository(IShowRepository):
         return self._to_entity(model) if model else None
 
     async def find_all(self, skip: int = 0, limit: int = 100) -> tuple[list[Show], int]:
-        q = self.db.query(ShowModel)
+        q = self.db.query(ShowModel).filter(ShowModel.is_active.is_(True))
         total = q.count()
         models = q.order_by(ShowModel.event_date.desc()).offset(skip).limit(limit).all()
         return [self._to_entity(m) for m in models], total
@@ -110,6 +111,7 @@ class SqlAlchemyShowRepository(IShowRepository):
         model.description = show.description
         model.intro = show.intro
         model.image_url = show.image_url
+        model.is_active = show.is_active
         model.updated_at = show.updated_at
         self._sync_children(model.id, show)
         self.db.commit()
@@ -127,7 +129,11 @@ class SqlAlchemyShowRepository(IShowRepository):
         self.db.commit()
 
     async def count_all(self) -> int:
-        return self.db.query(ShowModel).count()
+        return self.db.query(ShowModel).filter(ShowModel.is_active.is_(True)).count()
 
     async def count_upcoming(self) -> int:
-        return self.db.query(ShowModel).filter(ShowModel.event_date >= date.today()).count()
+        return (
+            self.db.query(ShowModel)
+            .filter(ShowModel.is_active.is_(True), ShowModel.event_date >= date.today())
+            .count()
+        )

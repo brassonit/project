@@ -134,6 +134,7 @@ class ShowModel(Base):
     image_url = Column(String(500), nullable=True)
     like_count = Column(Integer, nullable=False, default=0)
     view_count = Column(BigInteger, nullable=False, default=0)
+    is_active = Column(Boolean, nullable=False, default=True)
     created_at = Column(DateTime, nullable=False, default=datetime.now)
     updated_at = Column(DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
 

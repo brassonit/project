@@ -45,6 +45,7 @@ class ShowUpdate(BaseModel):
     lineup_artist_ids: Optional[list[str]] = None
     tickets: Optional[list[TicketItem]] = None
     videos: Optional[list[ShowVideoItem]] = None
+    is_active: Optional[bool] = None
 
 
 class ShowResponse(BaseModel):
@@ -58,6 +59,7 @@ class ShowResponse(BaseModel):
     image_url: Optional[str]
     like_count: int
     view_count: int
+    is_active: bool
     is_upcoming: bool
     lineup: list[LineupItem]
     tickets: list[TicketItem]
