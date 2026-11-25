@@ -23,6 +23,7 @@ class ArtistCreate(BaseModel):
     members: Optional[str] = None
     description: str = ""  # 상세소개
     modifier: str = ""  # 소개(수식어)
+    sort_order: int = 0  # 추천순 정렬 기준
     images: list[str] = []
     portfolios: list[PortfolioItem] = []
     videos: list[VideoItem] = []
@@ -34,6 +35,7 @@ class ArtistUpdate(BaseModel):
     members: Optional[str] = None
     description: Optional[str] = None  # 상세소개
     modifier: Optional[str] = None  # 소개(수식어)
+    sort_order: Optional[int] = None  # 추천순 정렬 기준
     images: Optional[list[str]] = None
     portfolios: Optional[list[PortfolioItem]] = None
     videos: Optional[list[VideoItem]] = None
@@ -49,6 +51,7 @@ class ArtistResponse(BaseModel):
     members: Optional[str]
     description: str  # 상세소개
     modifier: str  # 소개(수식어)
+    sort_order: int  # 추천순 정렬 기준
     like_count: int
     view_count: int
     is_active: bool

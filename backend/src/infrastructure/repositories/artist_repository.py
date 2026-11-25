@@ -67,6 +67,7 @@ class SqlAlchemyArtistRepository(IArtistRepository):
             members=model.members,
             description=model.description,
             modifier=model.modifier,
+            sort_order=model.sort_order,
             like_count=model.like_count,
             view_count=model.view_count,
             is_active=model.is_active,
@@ -99,6 +100,7 @@ class SqlAlchemyArtistRepository(IArtistRepository):
             members=artist.members,
             description=artist.description,
             modifier=artist.modifier,
+            sort_order=artist.sort_order,
             like_count=artist.like_count,
             view_count=artist.view_count,
             is_active=artist.is_active,
@@ -150,6 +152,7 @@ class SqlAlchemyArtistRepository(IArtistRepository):
         model.members = artist.members
         model.description = artist.description
         model.modifier = artist.modifier
+        model.sort_order = artist.sort_order
         model.is_active = artist.is_active
         model.updated_at = artist.updated_at
         self._sync_children(model.id, artist)

@@ -41,6 +41,7 @@ export interface BrArtist {
   members: string
   desc: string // 소개(수식어)
   detailDesc: string // 상세소개
+  sortOrder: number // 추천순 정렬 기준
   likes: number
   views: number
   images: string[]

@@ -21,6 +21,7 @@ interface ArtistDto {
   members: string | null
   description: string
   modifier: string
+  sort_order: number
   like_count: number
   view_count: number
   images: string[]
@@ -72,6 +73,7 @@ const toArtist = (d: ArtistDto): BrArtist => ({
   members: d.members || '',
   desc: d.modifier,
   detailDesc: d.description,
+  sortOrder: d.sort_order,
   likes: d.like_count,
   views: d.view_count,
   images: d.images,

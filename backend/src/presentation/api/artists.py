@@ -33,6 +33,7 @@ def _to_response(a: Artist) -> ArtistResponse:
         members=a.members,
         description=a.description,
         modifier=a.modifier,
+        sort_order=a.sort_order,
         like_count=a.like_count,
         view_count=a.view_count,
         is_active=a.is_active,
@@ -82,6 +83,7 @@ async def create_artist(
             members=request.members,
             description=request.description,
             modifier=request.modifier,
+            sort_order=request.sort_order,
             images=request.images,
             portfolios=[ArtistPortfolio(tag=p.tag, year=p.year, content=p.content) for p in request.portfolios],
             videos=[ArtistVideo(video_url=v.video_url, title=v.title) for v in request.videos],
@@ -111,6 +113,8 @@ async def update_artist(
         artist.description = request.description
     if request.modifier is not None:
         artist.modifier = request.modifier
+    if request.sort_order is not None:
+        artist.sort_order = request.sort_order
     if request.images is not None:
         artist.images = request.images
     if request.portfolios is not None:

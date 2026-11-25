@@ -75,6 +75,7 @@ class ArtistModel(Base):
     members = Column(String(50), nullable=True)  # 예) 솔로, 5인조
     description = Column(Text, nullable=False, default="")  # 상세소개
     modifier = Column(Text, nullable=False, default="")  # 소개(수식어)
+    sort_order = Column(Integer, nullable=False, default=0)  # 추천순 정렬 기준
     like_count = Column(Integer, nullable=False, default=0)
     view_count = Column(BigInteger, nullable=False, default=0)
     is_active = Column(Boolean, nullable=False, default=True)

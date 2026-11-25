@@ -3,8 +3,25 @@ import { useLocation, useNavigate, useParams, useSearchParams } from 'react-rout
 import { useBrass } from '../store'
 import { ArtistCard } from '../components'
 import { catNameById, genreNameById } from '../data'
+import type { BrArtist } from '../data'
 
 const PAGE = 20
+
+type SortKey = 'recommended' | 'name' | 'likes' | 'views'
+const SORT_OPTIONS: { key: SortKey; label: string }[] = [
+  { key: 'recommended', label: '추천순' },
+  { key: 'name', label: '이름순' },
+  { key: 'likes', label: '좋아요순' },
+  { key: 'views', label: '조회순' },
+]
+
+const byName = (a: BrArtist, b: BrArtist) => a.name.localeCompare(b.name, 'ko')
+const SORT_COMPARATORS: Record<SortKey, (a: BrArtist, b: BrArtist) => number> = {
+  recommended: (a, b) => a.sortOrder - b.sortOrder || byName(a, b),
+  name: byName,
+  likes: (a, b) => b.likes - a.likes || byName(a, b),
+  views: (a, b) => b.views - a.views || byName(a, b),
+}
 
 // 모바일 무한스크롤 로딩 개수 — URL에 넣으면 router 네비게이션으로 처리되어
 // Layout의 '새 페이지 진입 시 맨 위로 스크롤' 로직이 매번 발동해버림.
@@ -20,16 +37,19 @@ export default function CategoryPage() {
   const subId = rawSub ? Number(rawSub) : null
   const cat = catId != null ? catNameById(categories, catId) : ''
   const sub = subId != null ? genreNameById(categories, subId) : null
-  // 페이지 번호는 URL 쿼리에 보관 — 상세페이지에서 뒤로가기 시 보던 페이지 그대로 복원됨
+  // 페이지 번호/정렬순서는 URL 쿼리에 보관 — 상세페이지에서 뒤로가기 시 보던 상태 그대로 복원됨
   const [searchParams, setSearchParams] = useSearchParams()
   const pageNo = Math.max(1, Number(searchParams.get('page')) || 1)
+  const sortKey: SortKey = SORT_OPTIONS.some((o) => o.key === searchParams.get('sort'))
+    ? (searchParams.get('sort') as SortKey)
+    : 'recommended'
   const [mobileCount, setMobileCount] = useState<number>(() => {
     const saved = Number(sessionStorage.getItem(mobileCountKey(location.pathname)))
     return saved > 20 ? saved : 20
   })
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width:620px)').matches)
 
-  const cards = artists.filter((a) => a.cat === cat && (!sub || a.sub === sub))
+  const cards = artists.filter((a) => a.cat === cat && (!sub || a.sub === sub)).sort(SORT_COMPARATORS[sortKey])
   const pageCount = Math.max(1, Math.ceil(cards.length / PAGE))
 
   useEffect(() => {
@@ -63,28 +83,53 @@ export default function CategoryPage() {
   const safePageNo = Math.min(pageNo, pageCount)
   const shown = isMobile ? cards.slice(0, mobileCount) : cards.slice((safePageNo - 1) * PAGE, safePageNo * PAGE)
   const goPage = (n: number) => {
-    setSearchParams(n > 1 ? { page: String(n) } : {}, { replace: true })
+    const next = new URLSearchParams(searchParams)
+    if (n > 1) next.set('page', String(n))
+    else next.delete('page')
+    setSearchParams(next, { replace: true })
+    window.scrollTo(0, 0)
+  }
+  const changeSort = (key: SortKey) => {
+    const next = new URLSearchParams(searchParams)
+    if (key !== 'recommended') next.set('sort', key)
+    else next.delete('sort')
+    next.delete('page')
+    setSearchParams(next, { replace: true })
     window.scrollTo(0, 0)
   }
 
   return (
     <section>
-      <div className="fx ac crumb">
-        <button onClick={() => navigate('/')}>홈</button>
-        <span>›</span>
-        {sub ? (
-          <>
-            <button onClick={() => navigate(`/category/${catId}`)}>{cat}</button>
-            <span>›</span>
+      <div className="fx jb ac crumb">
+        <div className="fx ac" style={{ gap: 6 }}>
+          <button onClick={() => navigate('/')}>홈</button>
+          <span>›</span>
+          {sub ? (
+            <>
+              <button onClick={() => navigate(`/category/${catId}`)}>{cat}</button>
+              <span>›</span>
+              <span className="fw6" style={{ color: '#000' }}>
+                {sub}
+              </span>
+            </>
+          ) : (
             <span className="fw6" style={{ color: '#000' }}>
-              {sub}
+              {cat}
             </span>
-          </>
-        ) : (
-          <span className="fw6" style={{ color: '#000' }}>
-            {cat}
-          </span>
-        )}
+          )}
+        </div>
+        <select
+          className="qselect"
+          style={{ width: 'auto', maxWidth: 120, padding: '6px 30px 6px 12px', fontSize: 13 }}
+          value={sortKey}
+          onChange={(e) => changeSort(e.target.value as SortKey)}
+        >
+          {SORT_OPTIONS.map((o) => (
+            <option key={o.key} value={o.key}>
+              {o.label}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="sect" style={{ paddingTop: 20 }}>
         {cards.length > 0 ? (
